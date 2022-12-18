@@ -10,9 +10,7 @@ const Education: React.FC<IProps> = () => {
 
     const getData = () => {
         getAllEducation().then((resp) => {
-            if (resp.status === 200) {
-                setEducationList(resp.data)
-            }
+            setEducationList(resp);
         })
     }
 
@@ -23,7 +21,7 @@ const Education: React.FC<IProps> = () => {
 
     return (
         <div>
-            <div className='cv-right-side-card'>
+            <div data-testid="educationContainer" className='cv-right-side-card'>
                     <h2><b>Education</b></h2>
                     <hr className='cv-line-border-right'></hr>
             {
