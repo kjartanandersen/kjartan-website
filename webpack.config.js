@@ -1,6 +1,9 @@
 // webpack.config.js
+
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack');
+
 
 module.exports = {
     mode: 'development',
@@ -27,7 +30,10 @@ module.exports = {
           },
           {
             test: /\.css$/i,
-            use: ["style-loader", "css-loader"],
+            use: [
+              { loader: "style-loader", options: {injectType: "linkTag"} },
+              { loader: "file-loader" },
+            ],
           },
         ],
       },
@@ -37,7 +43,8 @@ module.exports = {
       plugins: [
         new HtmlWebpackPlugin({
           template: 'dist/index.html'
-        })
+        }),
+        new Dotenv()
       ],
       
   }

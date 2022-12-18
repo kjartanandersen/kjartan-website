@@ -20,7 +20,11 @@ const router = createBrowserRouter([
     },
     {
       path: "login",
-      element: <LoginForm shouldRemember={true} onUsernameChange={() => {}} onPasswordChange={() => {}} onRememberChange={() => {}} onSubmit={() => {}}  />
+      element: <LoginForm shouldRemember={false} onUsernameChange={() => {}} onPasswordChange={() => {}} onRememberChange={() => {}} onSubmit={() => {}}  />
+    },
+    {
+      path: "cv",
+      element: <CV />,
     },
 ])
 
