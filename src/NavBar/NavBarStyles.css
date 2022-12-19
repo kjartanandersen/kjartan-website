@@ -1,0 +1,22 @@
+h1 {
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .nav-link-box {
+    width: 75px;
+    height: 25px;
+    
+    background-color: red;
+  
+  }
+  
+  .nav-link-border {
+    
+    height: 25px;
+  }
+  
+  .nav_link {
+    text-decoration: none;
+    color: white;
+  }

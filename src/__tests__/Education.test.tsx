@@ -1,21 +1,18 @@
-import { cleanup } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
-import { getAllEducation } from  '../helpers/cv-storage'
+import Education from "../CV/Education/Education";
+import '@testing-library/jest-dom'
 
-afterEach(() => {
-    cleanup();
-    jest.resetAllMocks();
-});
 
-jest.mock('../helpers/cv-storage')
 
-jest.mocked(getAllEducation)
+import { getAllEducation2 } from  '../helpers/cv-storage'
 
-describe('<Education />', () => { 
-    test('should first', () => { 
+test('should render Education correctly', async () => { 
+    render(<Education />);
+    const linkElement = screen.getByText(/Education/i);
+    expect(linkElement).toBeInTheDocument
 
-        expect(1).toEqual(1)
-
-     })
  });
+
+
 

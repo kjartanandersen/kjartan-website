@@ -21,7 +21,7 @@ const Education: React.FC<IProps> = () => {
 
     return (
         <div>
-            <div data-testid="educationContainer" className='cv-right-side-card'>
+            <div className='cv-right-side-card'>
                     <h2><b>Education</b></h2>
                     <hr className='cv-line-border-right'></hr>
             {

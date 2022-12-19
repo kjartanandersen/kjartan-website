@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(43, 42, 51);
+    color: white;
+    
+}
+
+.home-page {
+    width: 100%;
+    text-align: center;
+}
+
+.top-of-cv {
+    width: 90%;
+    padding: 20px;
+
+}
+
+.cv-left-side {
+    float: left;
+    width: 30%;
+    
+}
+
+.cv-right-side {
+    float: right;
+    width: 70%;
+
+}
+
