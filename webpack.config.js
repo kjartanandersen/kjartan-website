@@ -34,10 +34,7 @@ module.exports = {
           { loader: "file-loader" },
         ],
       },
-      { 
-        test: /\\.(png|jp(e*)g|svg|gif)$/, 
-        use: ["file-loader"] 
-      },
+      {test: /\.(jpe?g|png|gif|svg)$/i, use: [{loader: "url-loader?name=src/CV/[name].[ext]"} ]},
     ],
   },
   resolve: {

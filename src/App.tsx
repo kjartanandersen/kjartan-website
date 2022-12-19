@@ -4,14 +4,16 @@ import React from "react";
 
 import './App.css'
 
+import NavBar from "./components/NavBar/NavBar";
+
 
 
 const App = () => (
-  <div>
+  <NavBar activeComp="">
     <h1 className="h1app">Hello React</h1>
     
-    
-  </div>
+  </NavBar>
+  
 );
 
 export default App;

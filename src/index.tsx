@@ -5,8 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import NotFound from "./NotFound";
-import CV from "./CV/CV";
-import LoginForm from "./LoginForm/LoginForm";
+import CV from "./components/CV/CV";
+import LoginForm from "./components/LoginForm/LoginForm";
+import TodoSite from "./components/TodoSite/TodoSite";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       path: "cv",
       element: <CV />,
     },
+    {
+      path: "todo",
+      element: <TodoSite />
+    }
 ])
 
 const rootNode = document.getElementById("app");

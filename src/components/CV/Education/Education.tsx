@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import { IProps, IState, EducationProp } from "../../_types/EducationTypes.d";
-import { getAllEducation } from "../../helpers/cv-storage";
+import { IProps, IState, EducationProp } from "../../../_types/EducationTypes.d";
+import { getAllEducation } from "../../../helpers/cv-storage";
 
 import './EducationStyles.css'
 

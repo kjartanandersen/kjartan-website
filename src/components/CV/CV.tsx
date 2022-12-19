@@ -3,6 +3,7 @@ import React from 'react';
 import NavBar from '../NavBar/NavBar';
 
 import './CVStyles.css';
+import cvImage from './cv_image.jpg';
 import Education from './Education/Education';
 
 const CV: React.FC = () => {
@@ -15,7 +16,7 @@ const CV: React.FC = () => {
         <div className='home-page'>
           <div className="top-of-cv">
             <h1><b>Kjartan Már Andersen</b></h1>
-            
+            <img src={cvImage} alt="" className="cv-image" />
           </div>
           <div className="cv-left-side">
             <div className="cv-right-side-card">
