@@ -1,133 +1,224 @@
-import React from 'react';
+import { render } from "@testing-library/react";
+import React, { useEffect, useState } from "react";
+import { getProfile } from "../../helpers/cv-storage";
+import { IProps, ProfileProp, SkillProp } from "../../_types/ProfileProps.d";
 
-import NavBar from '../NavBar/NavBar';
+import NavBar from "../NavBar/NavBar";
 
-import './CVStyles.css';
-import cvImage from './cv_image.jpg';
-import Education from './Education/Education';
+import "./CVStyles.css";
+import cvImage from "./cv_image.jpg";
 
-const CV: React.FC = () => {
+const defaultProfile: ProfileProp = {
+  id: "",
+  name: "",
+  about_me: "",
+  current_residence: "",
+  date_of_birth: new Date(),
+  ssn: "",
+  phone: "",
+  email: "",
+  hobbies: [],
+  languages: [],
+  skills: [],
+  references: [],
+  education: [],
+  work_experiences: [],
+  links: [],
+};
 
+const CV: React.FC<IProps> = () => {
+  const [isBusy, setisBusy] = useState(false);
+  const [profileList, setProfileList] = useState<ProfileProp>(defaultProfile);
+
+  const getData = () => {
+    getProfile().then((resp) => {
+      setProfileList(resp);
+      
+      
+      setisBusy(true);
+    });
+  };
+
+
+  useEffect(() => {
+    getData();
+  });
 
   return (
     <div>
-      <NavBar activeComp='home'>
-
-        <div className='home-page'>
+      <NavBar activeComp="cv">
+        <div className="home-page">
           <div className="top-of-cv">
-            <h1><b>Kjartan Már Andersen</b></h1>
+            <h1>
+              <b>{profileList.name}</b>
+            </h1>
             <img src={cvImage} alt="" className="cv-image" />
           </div>
           <div className="cv-left-side">
             <div className="cv-right-side-card">
-              <h2><b>Profile</b></h2>
-              <hr className='cv-line-border-right'></hr>
+              <h2>
+                <b>Profile</b>
+              </h2>
+              <hr className="cv-line-border-right"></hr>
               <div className="cv-right-side-ed-list">
-                <p><b>Date of Birth: </b>23-09-1996 <br />
-                  <b>Kennitala: </b>230996-2379</p>
-
-
+                <p>
+                  <b>Date of Birth: </b>
+                  {new Date(profileList.date_of_birth).toLocaleDateString("en-GB")} <br />
+                  <b>Kennitala: </b>
+                  {profileList.ssn}
+                </p>
               </div>
             </div>
 
             <div className="cv-right-side-card">
-              <h2><b>Contact</b></h2>
-              <hr className='cv-line-border-right'></hr>
+              <h2>
+                <b>Contact</b>
+              </h2>
+              <hr className="cv-line-border-right"></hr>
               <div className="cv-right-side-ed-list">
-                <p><b>Phone: </b>+354 820-9623<br />
-                  <b>Email: </b>kjartan1@live.com</p>
-
-
+                <p>
+                  <b>Phone: </b>
+                  {profileList.phone}
+                  <br />
+                  <b>Email: </b>
+                  {profileList.email}
+                </p>
               </div>
             </div>
 
             <div className="cv-right-side-card">
-              <h2><b>Hobbies</b></h2>
-              <hr className='cv-line-border-right'></hr>
+              <h2>
+                <b>Hobbies</b>
+              </h2>
+              <hr className="cv-line-border-right"></hr>
               <div className="cv-right-side-ed-list">
-                <p>Video Games <br />
-                  Movies <br />
-                  Music <br />
-                  Compuers <br />
-                  Football</p>
-
+                <p>
+                {profileList.hobbies.map((hobby, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      {hobby} <br />
+                    </React.Fragment>
+                  );
+                })}
+                </p>
               </div>
             </div>
 
             <div className="cv-right-side-card">
-              <h2><b>References</b></h2>
-              <hr className='cv-line-border-right'></hr>
+              <h2>
+                <b>References</b>
+              </h2>
+              <hr className="cv-line-border-right"></hr>
               <div className="cv-right-side-ed-list">
-                <p><b>Name:</b> Eiríkur Sæmundsson (Advania) <br />
-                  <b>E-mail:</b> eirikur.saemundsson@advania.is </p>
-
-
+                {profileList.references.map((reference, index) => {
+                  return (
+                    <p key={index}>
+                      <b>Name: </b> {reference.name} <br />
+                      <b>Email: </b> {reference.email}
+                    </p>
+                  );
+                })}
               </div>
             </div>
 
             <div className="cv-right-side-card">
-              <h2><b>Skills</b></h2>
-              <hr className='cv-line-border-right'></hr>
+              <h2>
+                <b>Skills</b>
+              </h2>
+              <hr className="cv-line-border-right"></hr>
               <div className="cv-right-side-ed-list">
-                <p><b>Excellent: </b> Java, Python, C, C++, C#, JavaScript, NodeJS, React, NET, SQL, Linux, Windows <br />
-                  <b>Good: </b> OpenGL, Unity </p>
+                <p>
+                  {
+                    (() => {
+                      let elements: JSX.Element[] = []
+                      let ExSkills: SkillProp[] = []
+                      let GoodSkills: SkillProp[] = []
+                      
+                      profileList.skills.map((skill) => {
+                          skill.proficiency == "Excellent" ? ExSkills.push(skill) : GoodSkills.push(skill)                        
+                      })
 
+                      elements.push(<b> Excellent: </b>)
 
+                      ExSkills.map((skill, index) => {
+                        if (index ==  ExSkills.length - 1) { 
+                          elements.push( < React.Fragment key={index}>{skill.proficiency == "Excellent" ? skill.name : ""}</ React.Fragment>)  
+                        }
+                        else {
+                          elements.push( < React.Fragment key={index}>{skill.proficiency == "Excellent" ? skill.name + ", " : ""}</ React.Fragment>)
+                          
+                        }
+                      })
+                      elements.push(<br />)
+                      elements.push(<b> Good: </b>)
+                      
+                      GoodSkills.map((skill, index) => {
+                        if (index ==  GoodSkills.length - 1) { 
+                          elements.push( < React.Fragment key={index}>{skill.proficiency == "Good" ? skill.name : ""}</ React.Fragment>)  
+                        }
+                        else {
+                          elements.push( < React.Fragment key={index}>{skill.proficiency == "Good" ? skill.name + ", " : ""}</ React.Fragment>)
+                          
+                        }
+                      })
+
+                      
+                      return elements    
+                    })()
+                  }
+                </p>
+                
               </div>
             </div>
-
           </div>
-          <div className='cv-right-side'>
-
-
-
-            <Education />
-
-            <div className='cv-right-side-card'>
-              <h2><b>Work Experience</b></h2>
-              <hr className='cv-line-border-right'></hr>
-
-              <p><b>N1</b> <br />
-                2016 - 2021<br />
-                Cashier<br />
-                A part time job as a cashier while I was studying at
-                Reykjavik University
-              </p>
-
-
-              <p><b>Reykjavik University</b> <br />
-                2020<br />
-                Programming Assistant, Summer Job<br />
-                Paid summer job where I was tasked in assisting a
-                student developing his Master's thesis in autonomous
-                UAV landing. I was tasked in setting up networks for
-                the raspberry pi and Jetson Nano on the drone, and
-                make network communications possible through USB.
-              </p>
-
-
-              <p><b>Advania Ísland</b> <br />
-                2021 Jan - 2022 March<br />
-                Software Specialist, Full Time<br />
-                Worked as part of the Oracle team at Advania. I was
-                tasked in developing and maintaining applications in
-                Oracle APEX that customers would use for ledger
-                reports. I also created and maintained packages in the
-                database in PL/SQL that the applications would utilize.
-                I also did some minor JavaScript on the applications
-              </p>
-
+          <div className="cv-right-side">
+            <div>
+              <div className="cv-right-side-card">
+                <h2>
+                  <b>Education</b>
+                </h2>
+                <hr className="cv-line-border-right"></hr>
+                {isBusy ? (
+                  profileList.education.map((data, index) => {
+                    return (
+                      <div key={index}>
+                        <p>
+                          <b>{data.name}</b> <br />
+                          {data.date_from} - {data.date_to}
+                          <br />
+                          {data.subject}
+                          <br />
+                          {data.description}
+                        </p>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <></>
+                )}
+              </div>
             </div>
 
+            <div className="cv-right-side-card">
+              <h2>
+                <b>Work Experience</b>
+              </h2>
+              <hr className="cv-line-border-right"></hr>
 
-
+              {profileList.work_experiences.map((work_ex, index) => {
+                return (
+                  <p key={index}>
+                    <b>{work_ex.company_name} </b> <br />
+                    {work_ex.date_from} - {work_ex.date_to} <br />
+                    {work_ex.occupation} <br />
+                    {work_ex.description}
+                  </p>
+                );
+              })}
+            </div>
           </div>
-
-
-
         </div>
       </NavBar>
-
     </div>
   );
 };

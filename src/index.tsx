@@ -17,19 +17,18 @@ const router = createBrowserRouter([
     },
     {
         path: "cv",
-        element: <CV />
+        element: <CV />,
+        errorElement: <NotFound />,
     },
     {
       path: "login",
-      element: <LoginForm shouldRemember={false} onUsernameChange={() => {}} onPasswordChange={() => {}} onRememberChange={() => {}} onSubmit={() => {}}  />
-    },
-    {
-      path: "cv",
-      element: <CV />,
+      element: <LoginForm shouldRemember={false} onUsernameChange={() => {}} onPasswordChange={() => {}} onRememberChange={() => {}} onSubmit={() => {}}  />,
+      errorElement: <NotFound />,
     },
     {
       path: "todo",
-      element: <TodoSite />
+      element: <TodoSite />,
+      errorElement: <NotFound />,
     }
 ])
 
