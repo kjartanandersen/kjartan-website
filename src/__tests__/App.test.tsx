@@ -2,9 +2,7 @@ import React from "react";
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import LoginForm, { Props } from "../LoginForm/LoginForm";
-import Education from "../CV/Education/Education";
-
+import App from "../App";
 
 
 describe('first', () => { 

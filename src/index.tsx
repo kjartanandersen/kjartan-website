@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import NotFound from "./NotFound";
 import CV from "./components/CV/CV";
-import LoginForm from "./components/LoginForm/LoginForm";
 import TodoSite from "./components/TodoSite/TodoSite";
 
 const router = createBrowserRouter([
@@ -19,11 +18,6 @@ const router = createBrowserRouter([
         path: "cv",
         element: <CV />,
         errorElement: <NotFound />,
-    },
-    {
-      path: "login",
-      element: <LoginForm shouldRemember={false} onUsernameChange={() => {}} onPasswordChange={() => {}} onRememberChange={() => {}} onSubmit={() => {}}  />,
-      errorElement: <NotFound />,
     },
     {
       path: "todo",

@@ -13,15 +13,17 @@ const NavBar = ({activeComp, children}: Props) => {
         <div className='container-fluid'>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <Link to='/' className={`nav-link ${activeComp === "home" ? "active" : ""}`} >Home</Link> 
-              <Link to='/cv' className={`nav-link ${activeComp === "cv" ? "active" : ""}`} >My CV</Link> 
-              <Link to='/todo' className={`nav-link ${activeComp === "todo" ? "active" : ""}`}>Todo App</Link>
+              <Link to='/' className={`nav-link ${activeComp === "home" ? "nav-active" : ""}`} >Home</Link> 
+              <Link to='/cv' className={`nav-link ${activeComp === "cv" ? "nav-active" : ""}`} >My CV</Link> 
+              <Link to='/todo' className={`nav-link ${activeComp === "todo" ? "nav-active" : ""}`}>Todo App</Link>
             </div>
           </div>
 
         </div>
       </nav>
       {children}
+
+      <div className="navbar-footer">footer</div>
     </div>
   );
 };
