@@ -3,4 +3,5 @@
 node_modules/
 .env
 coverage/
-dist/
+dist/*
+!dist/_redirects
