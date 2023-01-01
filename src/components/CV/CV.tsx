@@ -1,6 +1,9 @@
 import { render } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
-import { getProfileFromAPI, getProfileFromLocalDb } from "../../helpers/cv-storage";
+import {
+  getProfileFromAPI,
+  getProfileFromLocalDb,
+} from "../../helpers/cv-storage";
 import { IProps, ProfileProp, SkillProp } from "../../_types/ProfileProps.d";
 
 import NavBar from "../NavBar/NavBar";
@@ -31,6 +34,7 @@ const CV: React.FC<IProps> = () => {
   const [profileList, setProfileList] = useState<ProfileProp>(defaultProfile);
 
   const getDataFromAPI = () => {
+    // console.log(process.env.REACT_APP_DB_HOST)
     getProfileFromAPI().then((resp) => {
       setProfileList(resp);
       setDoneProcessing(true);
@@ -40,33 +44,35 @@ const CV: React.FC<IProps> = () => {
   const getDataFromLocalDb = () => {
     getProfileFromLocalDb().then((resp) => {
       setProfileList(resp);
-      
 
       setDoneProcessing(true);
     });
   };
 
   useEffect(() => {
-    
-    getDataFromLocalDb();
+    if (process.env.REACT_APP_DB_HOST == "localhost") {
+      getDataFromLocalDb();
+    } else if (process.env.REACT_APP_DB_HOST == "mongodb") {
+      getDataFromAPI();
+    }
   });
 
   return (
     <div>
       <NavBar activeComp="cv">
-        <div className="top-of-cv">
-          <h1>
-            <b>{ profileList.name }</b>
-          </h1>
-          <img src={cvImage} alt="" className="cv-image" />
-        </div>
-        <div className="cv-left-side">
-          <div className="cv-right-side-card">
+        <div className="cv-page">
+          <div>
+            <h1>
+              <b>{profileList.name}</b>
+            </h1>
+            <img src={cvImage} alt="" className="cv-image" />
+
+            <div className="cv-right-side-card">
             <h2>
               <b>Profile</b>
             </h2>
             <hr className="cv-line-border-right"></hr>
-            <div className="cv-right-side-ed-list">
+            <div>
               <p>
                 <b>Date of Birth: </b>
                 {doneProcessing &&
@@ -85,7 +91,7 @@ const CV: React.FC<IProps> = () => {
               <b>Contact</b>
             </h2>
             <hr className="cv-line-border-right"></hr>
-            <div className="cv-right-side-ed-list">
+            <div>
               <p>
                 <b>Phone: </b>
                 {doneProcessing && profileList.phone}
@@ -95,13 +101,17 @@ const CV: React.FC<IProps> = () => {
               </p>
             </div>
           </div>
+          </div>
+
+          <div>
+          
 
           <div className="cv-right-side-card">
             <h2>
               <b>Hobbies</b>
             </h2>
             <hr className="cv-line-border-right"></hr>
-            <div className="cv-right-side-ed-list">
+            <div>
               <p>
                 {doneProcessing &&
                   profileList.hobbies.map((hobby, index) => {
@@ -120,7 +130,7 @@ const CV: React.FC<IProps> = () => {
               <b>References</b>
             </h2>
             <hr className="cv-line-border-right"></hr>
-            <div className="cv-right-side-ed-list">
+            <div>
               {doneProcessing &&
                 profileList.references.map((reference, index) => {
                   return (
@@ -138,7 +148,7 @@ const CV: React.FC<IProps> = () => {
               <b>Skills</b>
             </h2>
             <hr className="cv-line-border-right"></hr>
-            <div className="cv-right-side-ed-list">
+            <div>
               <p>
                 {doneProcessing &&
                   (() => {
@@ -158,15 +168,13 @@ const CV: React.FC<IProps> = () => {
                       if (index == ExSkills.length - 1) {
                         elements.push(
                           <React.Fragment key={index}>
-                            {skill.proficiency == "Excellent" ? skill.name : ""}
+                            {skill.name}
                           </React.Fragment>
                         );
                       } else {
                         elements.push(
                           <React.Fragment key={index}>
-                            {skill.proficiency == "Excellent"
-                              ? skill.name + ", "
-                              : ""}
+                            {skill.name + ", "}
                           </React.Fragment>
                         );
                       }
@@ -178,15 +186,13 @@ const CV: React.FC<IProps> = () => {
                       if (index == GoodSkills.length - 1) {
                         elements.push(
                           <React.Fragment key={index}>
-                            {skill.proficiency == "Good" ? skill.name : ""}
+                            {skill.name}
                           </React.Fragment>
                         );
                       } else {
                         elements.push(
                           <React.Fragment key={index}>
-                            {skill.proficiency == "Good"
-                              ? skill.name + ", "
-                              : ""}
+                            {skill.name + ", "}
                           </React.Fragment>
                         );
                       }
@@ -197,30 +203,32 @@ const CV: React.FC<IProps> = () => {
               </p>
             </div>
           </div>
-        </div>
-        <div className="cv-right-side">
+          </div>
+
+
           <div>
-            <div className="cv-right-side-card">
-              <h2>
-                <b>Education</b>
-              </h2>
-              <hr className="cv-line-border-right"></hr>
-              {doneProcessing &&
-                profileList.education.map((data, index) => {
-                  return (
-                    <div key={index}>
-                      <p>
-                        <b>{data.name} <br />
+          <div className="cv-right-side-card">
+            <h2>
+              <b>Education</b>
+            </h2>
+            <hr className="cv-line-border-right"></hr>
+            {doneProcessing &&
+              profileList.education.map((data, index) => {
+                return (
+                  <div key={index}>
+                    <p>
+                      <b>
+                        {data.name} <br />
                         {data.date_from} - {data.date_to}
                         <br />
-                        {data.subject} </b>
-                        <br />
-                        {data.description}
-                      </p>
-                    </div>
-                  );
-                })}
-            </div>
+                        {data.subject}{" "}
+                      </b>
+                      <br />
+                      {data.description}
+                    </p>
+                  </div>
+                );
+              })}
           </div>
 
           <div className="cv-right-side-card">
@@ -233,13 +241,17 @@ const CV: React.FC<IProps> = () => {
               profileList.work_experiences.map((work_ex, index) => {
                 return (
                   <p key={index}>
-                    <b>{work_ex.company_name} <br />
-                    {work_ex.date_from} - {work_ex.date_to} <br />
-                    {work_ex.occupation}</b> <br />
+                    <b>
+                      {work_ex.company_name} <br />
+                      {work_ex.date_from} - {work_ex.date_to} <br />
+                      {work_ex.occupation}
+                    </b>{" "}
+                    <br />
                     {work_ex.description}
                   </p>
                 );
               })}
+          </div>
           </div>
         </div>
       </NavBar>

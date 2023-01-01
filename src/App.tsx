@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar/NavBar";
 
 const App = () => (
   <NavBar activeComp="home">
-    <h1 className="h1app">Hello React</h1>
+    <div className="home">Hello</div>
     
   </NavBar>
   

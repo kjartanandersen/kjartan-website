@@ -1,7 +1,10 @@
 # .gitignore
 
 node_modules/
-.env
 coverage/
 dist/*
 !dist/_redirects
+
+# .env
+prod.env
+dev.env
