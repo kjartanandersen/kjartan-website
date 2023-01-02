@@ -8,22 +8,34 @@ import './NavBarStyles.css';
 
 const NavBar = ({activeComp, children}: Props) => {
   return (
-    <div>
-      <nav className='navbar navbar-expand-lg bg-light'>
-        <div className='container-fluid'>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+    
+    <div className='nav-container'>
+          <div className='navbar'>
             <div className="navbar-nav">
-              <Link to='/' className={`nav-link ${activeComp === "home" ? "nav-active" : ""}`} >Home</Link> 
-              <Link to='/cv' className={`nav-link ${activeComp === "cv" ? "nav-active" : ""}`} >My CV</Link> 
-              <Link to='/todo' className={`nav-link ${activeComp === "todo" ? "nav-active" : ""}`}>Todo App</Link>
+              <div className='navbar-item'>
+                <Link to='/' className={`nav-link ${activeComp === "home" ? "nav-active" : ""}`} >About</Link>
+              </div>
+              
+              <div className='navbar-item'>
+                <Link to='/cv' className={`nav-link ${activeComp === "cv" ? "nav-active" : ""}`} >My CV</Link>  
+              </div>
+              
+              <div className='navbar-item'>
+                <Link to='/todo' className={`nav-link ${activeComp === "todo" ? "nav-active" : ""}`}>Todo App</Link>  
+              </div>
+               
+              
             </div>
-          </div>
+            </div>
 
-        </div>
-      </nav>
       {children}
 
-      <div className="navbar-footer">footer</div>
+
+        <div className="navbar-footer">
+          <p className='navbar-footer-copy'>
+            Copyright: {new Date().getFullYear()}
+          </p>
+        </div>
     </div>
   );
 };

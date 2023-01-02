@@ -1,22 +1,14 @@
-// webpack.config.js
+// webpack.common.js
 
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  mode: "development",
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "bundle.js",
-  },
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, "./dist"),
-    },
-    port: 3000,
-    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -43,7 +35,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "dist/index.html",
-    }),
-    new Dotenv(),
+    })
   ],
 };

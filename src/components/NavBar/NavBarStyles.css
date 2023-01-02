@@ -1,48 +1,77 @@
-h1 {
-    margin-top: 10px !important;
-    margin-bottom: 20px !important;
-  }
-  
-  .nav-link-box {
-    width: 75px;
-    height: 25px;
-    
-    background-color: red;
-  
-  }
-  
-  .nav-link-border {
-    
-    height: 25px;
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: white;
-    background-color: rgb(228, 114, 21);
-    margin-left: 15px;
-    border-radius: 20px;
-    width: 100px;
-    text-align: center;
-    font-family: Noto Sans,Arial,sans-serif;
-    font-weight: bold;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-  .nav-active {
-    color: rgb(235, 224, 224);
-  }
+.nav-container {
+  position: relative;
+  min-height: 100vh;
+}
 
-  .navbar-footer {
-    width: 100%;
-    text-align: center;
-  }
+.nav-link-box {
+  width: 75px;
+  height: 25px;
 
-  .nav-link:hover {
-    text-decoration: none;
-    color: black;
-    background-color: rgb(248, 115, 7);
-    margin-left: 15px;
-    border-radius: 20px;
-    width: 100px;
-    text-align: center;
-  }
+  background-color: red;
+}
+
+.navbar {
+  background-color: white;
+  width: 100%;
+  box-shadow: 0 4px 18px 0 rgba(130, 175, 202, 0.2);
+  /* border-bottom: solid;
+  border-width: 1px;
+  border-color: rgb(201, 193, 193); */
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.nav-link-border {
+  height: 25px;
+}
+
+.nav-link {
+  font-size: 20px;
+  text-align: center;
+  width: 100px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.nav-active {
+  color: blue;
+}
+
+.navbar-item {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.navbar-footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 2.5rem;
+  text-align: center;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  border-top: solid;
+  border-width: 1px;
+  border-color: rgb(201, 193, 193);
+}
+
+.nav-link:hover {
+  color: black;
+  border-bottom: 1px solid transparent;
+  margin-bottom: 9px;
+  margin-top: 5px;
+  border-color: rgb(162, 209, 162);
+}
+
+.navbar-footer-copy {
+
+}

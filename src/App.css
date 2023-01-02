@@ -1,3 +1,28 @@
-.h1app {
-    background-color: grey;
+
+
+.home-info {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    display: flex;
+    
+}
+
+.home-image {
+
+    width: 300px;
+    height: 300px;
+    border-radius: 180px;
+    border-style: solid;
+    border: 1px solid;
+    
+}
+
+.home-aboutme {
+    margin: 30px;
+    width: 450px;
+}
+
+.home-name {
+    margin-bottom: 30px;
 }
