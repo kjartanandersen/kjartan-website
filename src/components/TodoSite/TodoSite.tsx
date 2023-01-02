@@ -4,7 +4,7 @@ import InputField from './InputField/InputField';
 import { Todo } from './Model/Model';
 import TodoList from './TodoList/TodoList';
 import NavBar from '../NavBar/NavBar';
-import { DragDropContext } from 'react-beautiful-dnd';
+
 
 const TodoSite: React.FC<{ name?: string }> = ({ name }) => {
 
@@ -26,7 +26,7 @@ const TodoSite: React.FC<{ name?: string }> = ({ name }) => {
 
   return (
     <NavBar activeComp='todo' >
-    <DragDropContext onDragEnd={() => {}}>
+    
       <div className="App">
         <span className='heading'>Taskify</span>
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
@@ -37,7 +37,6 @@ const TodoSite: React.FC<{ name?: string }> = ({ name }) => {
           setCompletedTodos={setCompletedTodos} />
 
       </div>
-    </DragDropContext>
     </NavBar>
   );
 }

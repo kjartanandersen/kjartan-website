@@ -1,13 +1,18 @@
 // src/App.tsx
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./App.css";
-
 import NavBar from "./components/NavBar/NavBar";
-
 import cvImage from "./components/CV/cv_image.jpg";
 
-const App = () => (
+const App: React.FC = () => {
+
+useEffect(() => {
+  
+});
+
+return (
+  <div>
   <NavBar activeComp="home">
     <div className="home">
       <div className="home-info">
@@ -25,6 +30,8 @@ const App = () => (
       </div>
     </div>
   </NavBar>
-);
+  </div>
+)
+};
 
 export default App;
