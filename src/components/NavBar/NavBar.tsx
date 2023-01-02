@@ -31,7 +31,11 @@ const NavBar = ({activeComp, children}: Props) => {
       {children}
 
 
-        <div className="navbar-footer">footer</div>
+        <div className="navbar-footer">
+          <p className='navbar-footer-copy'>
+            Copyright: {new Date().getFullYear()}
+          </p>
+        </div>
     </div>
   );
 };

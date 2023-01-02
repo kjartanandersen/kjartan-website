@@ -3,10 +3,13 @@
 .cv-page {
     padding: 50px;
     display: flex;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     
+    
+}
+
+.cv-title {
     animation: fadein 2s;
-    
 }
 
 .cv-image {
@@ -20,6 +23,7 @@
 .cv-right-side-card {
     margin: 30px;
     padding: 10px;
+    animation: fadein 2s;
     
     
 }
