@@ -34,7 +34,7 @@ const CV: React.FC<IProps> = () => {
   const [profileList, setProfileList] = useState<ProfileProp>(defaultProfile);
 
   const getDataFromAPI = () => {
-    // console.log(process.env.REACT_APP_DB_HOST)
+    console.log(process.env.REACT_APP_DB_HOST)
     getProfileFromAPI().then((resp) => {
       setProfileList(resp);
       setDoneProcessing(true);
