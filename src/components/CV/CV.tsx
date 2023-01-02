@@ -59,6 +59,8 @@ const CV: React.FC<IProps> = () => {
 
   return (
     <div>
+      {process.env.REACT_APP_DB_HOST}
+      {process.env.REACT_APP_API_URL}
       <NavBar activeComp="cv">
         {doneProcessing && (
           <div className="cv-page">
