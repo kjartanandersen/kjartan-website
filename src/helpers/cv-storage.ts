@@ -12,7 +12,8 @@ const dev_config = {}
 export async function getProfileFromAPI() {
   try {
     
-    const config = process.env.NODE_ENV == 'production' ? prod_config : process.env.NODE_ENV === 'development' ? dev_config : '';
+    //const config = process.env.NODE_ENV == 'production' ? prod_config : process.env.NODE_ENV === 'development' ? dev_config : '';
+    const config = prod_config
 
     const url: string = process.env.REACT_APP_API_URL!;
     const data = await axios.get<ProfileProp[]>(url , config);

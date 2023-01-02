@@ -4,10 +4,5 @@ const Dotenv = require("dotenv-webpack");
 
 module.exports = merge(common, {
     mode: 'production',
-    devtool: "source-map",
-    plugins: [
-        new Dotenv({
-          path: './prod.env'
-        })
-      ]
+    devtool: "source-map"
 });
