@@ -12,7 +12,7 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
         body: value,
         headers: {
             "Content-Type": "text/plain",
-            "access-control-allow-origin": "*"
+            "Access-Control-Allow-Origin": "*"
         }
     }
 
