@@ -58,7 +58,7 @@ export async function getProfileFromLocalDb() {
 export async function getProfile() {
   try {
 
-    const env = await axios.get<EnvType>('http://localhost:8888/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
+    const env = await axios.get<EnvType>('https://kjartanmar.netlify.app/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
     if (env.status !== 200) {throw new Error("Error getting environment values")}
     return await getProfileFromAPI(env.data.apiUrl);
 
