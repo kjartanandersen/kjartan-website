@@ -9,7 +9,11 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
 
     return {
         statusCode: 200,
-        body: value
+        body: value,
+        headers: {
+            "Content-Type": "text/plain",
+            "access-control-allow-origin": "*"
+        }
     }
 
 };
