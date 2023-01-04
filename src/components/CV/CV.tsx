@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import {
   getProfileFromAPI,
   getProfileFromLocalDb,
+  getProfile
 } from "../../helpers/cv-storage";
 import { IProps, ProfileProp, SkillProp } from "../../_types/ProfileProps.d";
 
@@ -33,34 +34,18 @@ const CV: React.FC<IProps> = () => {
   const [doneProcessing, setDoneProcessing] = useState(false);
   const [profileList, setProfileList] = useState<ProfileProp>(defaultProfile);
 
-  const getDataFromAPI = () => {
-    console.log(process.env.REACT_APP_DB_HOST)
-    getProfileFromAPI().then((resp) => {
-      setProfileList(resp);
-      setDoneProcessing(true);
-    });
-  };
 
-  const getDataFromLocalDb = () => {
-    getProfileFromLocalDb().then((resp) => {
-      setProfileList(resp);
-
-      setDoneProcessing(true);
-    });
-  };
 
   useEffect(() => {
-    if (process.env.REACT_APP_DB_HOST == "localhost") {
-      getDataFromLocalDb();
-    } else if (process.env.REACT_APP_DB_HOST == "mongodb") {
-      getDataFromAPI();
-    }
-  });
+    getProfile().then((resp) => {
+      setProfileList(resp);
+      setDoneProcessing(true);
+    });
+  }, []);
 
   return (
     <div>
-      DB_HOST IS: {process.env.REACT_APP_DB_HOST}
-      {process.env.REACT_APP_API_URL}
+      
       <NavBar activeComp="cv">
         {doneProcessing && (
           <div className="cv-page">
