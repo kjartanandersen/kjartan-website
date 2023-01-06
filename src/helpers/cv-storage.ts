@@ -1,4 +1,4 @@
-import axios, { Axios } from "axios";
+import axios, { Axios, AxiosResponse } from "axios";
 import { ProfileProp } from "../_types/ProfileProps.d";
 import { profileData } from "../Db/profileData";
 import { EnvType } from "../globals";
@@ -56,11 +56,20 @@ export async function getProfileFromLocalDb() {
 }
 
 export async function getProfile() {
+  let env: AxiosResponse<ProfileProp>;
   try {
+    // console.log(process.env.NODE_ENV)
+    // if (!process.env.NODE_ENV === undefined) {
+    //   env = await axios.get<ProfileProp[]>('https://kjartanmar.netlify.app/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
+    // } else {
+    //   env = await axios.get<ProfileProp[]>('http://localhost:8888/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
+    // }
+    env = await axios.get<ProfileProp>('http://localhost:8888/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
+    console.log(env.data)
 
-    const env = await axios.get<EnvType>('https://kjartanmar.netlify.app/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
+
     if (env.status !== 200) {throw new Error("Error getting environment values")}
-    return await getProfileFromAPI(env.data.apiUrl);
+    return env.data;
 
     
   } catch (error) {

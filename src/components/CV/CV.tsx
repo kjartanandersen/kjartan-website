@@ -38,6 +38,8 @@ const CV: React.FC<IProps> = () => {
 
   useEffect(() => {
     getProfile().then((resp) => {
+      console.log("data is:");
+      console.log(resp);
       setProfileList(resp);
       setDoneProcessing(true);
     });
@@ -47,6 +49,13 @@ const CV: React.FC<IProps> = () => {
     <div>
       
       <NavBar activeComp="cv">
+
+        {!doneProcessing && (
+          <div className="lds-spinner">
+            <div className="lds-default"> <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>
+        )}
+        
         {doneProcessing && (
           <div className="cv-page">
             <div className="cv-title">
@@ -108,24 +117,7 @@ const CV: React.FC<IProps> = () => {
                   </p>
                 </div>
               </div>
-
-              <div className="cv-right-side-card">
-                <h2>
-                  <b>References</b>
-                </h2>
-                <hr className="cv-line-border-right"></hr>
-                <div>
-                  {profileList.references.map((reference, index) => {
-                    return (
-                      <p key={index}>
-                        <b>Name: </b> {reference.name} <br />
-                        <b>Email: </b> {reference.email}
-                      </p>
-                    );
-                  })}
-                </div>
-              </div>
-
+              
               <div className="cv-right-side-card">
                 <h2>
                   <b>Skills</b>
@@ -233,7 +225,7 @@ const CV: React.FC<IProps> = () => {
               </div>
             </div>
           </div>
-        )}
+        )} 
       </NavBar>
     </div>
   );
