@@ -1,5 +1,5 @@
 import { Handler, HandlerEvent, HandlerContext } from '@netlify/functions';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 import { ProfileProp } from '../../src/_types/ProfileProps.d'
 
@@ -8,33 +8,36 @@ const prod_config = {
   
   };
 
-  
-const dev_config = {}
+const def_axios_res: AxiosResponse<ProfileProp[], any> = {
+  data: [],
+  status: 200,
+  statusText: 'Internal Server Error',
+  headers: {},
+  config: {},
+  request: {}
+
+};
 
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
-    
-    // const apiUrl = process.env.REACT_APP_API_URL!;
-    // const dbHost = process.env.REACT_APP_DB_HOST!;
-
-    // const value = JSON.stringify({apiUrl: apiUrl, dbHost: dbHost})
-
-    // return {
-    //     statusCode: 200,
-    //     body: value,
-    //     headers: {
-    //         "Content-Type": "text/plain",
-    //         "Access-Control-Allow-Origin": "*"
-    //     }
-    // }
-
     try {
-    
+        // let data: AxiosResponse<ProfileProp[], any>;
+
         //const config = process.env.NODE_ENV == 'production' ? prod_config : process.env.NODE_ENV === 'development' ? dev_config : '';
-        const config = prod_config;
-        const url = process.env.REACT_APP_API_URL!;
-    
-        const data = await axios.get<ProfileProp[]>(url , config);
+        const prod_url = process.env.REACT_APP_API_URL!;
+        const dev_url = process.env.REACT_APP_DEV_API_URL!;
         
+
+        // if (process.env.NODE_ENV === 'development') {
+        //   data = await axios.get<ProfileProp[]>(dev_url, prod_config);
+        // } else {
+        //   data = await axios.get<ProfileProp[]>(prod_url , prod_config);
+        // } 
+        // else {
+        //   data = def_axios_res;
+        // }
+
+       const data = await axios.get<ProfileProp[]>(prod_url, prod_config);
+
         if (data.status !== 200) {
           throw new Error("Error getting profile document");
         }
@@ -47,11 +50,9 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
                     }
         }
 
-        // return data.data[0];
-
 
       } catch (error) {
-        console.log(error)
+        console.error(error)
         throw error;
       }
 

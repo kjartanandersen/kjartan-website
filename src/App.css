@@ -1,11 +1,16 @@
-
+.home {
+    background-color: rgb(77, 75, 75);
+    min-height: 100vh;
+}
 
 .home-info {
     position: absolute;
     top: 20%;
     left: 30%;
     display: flex;
-    
+    float: auto;
+    width: 80%;
+    color: white;
 }
 
 .home-image {
@@ -25,4 +30,10 @@
 
 .home-name {
     margin-bottom: 30px;
+}
+
+@media (max-width: 1024px) {
+    .home-info {
+        left: 10%;
+    }
 }

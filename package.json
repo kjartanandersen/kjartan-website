@@ -5,8 +5,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack serve --open --config webpack.dev.js",
-    "build": "webpack --mode production --progress --config webpack.prod.js ",
-    "netlify": "yarn build && netlify dev",
+    "build:dev": "webpack --mode development --progress --config webpack.dev.js ",
+    "build:prod": "webpack --mode production --progress --config webpack.prod.js",
+    "netlify:dev": "yarn build:dev && netlify dev",
+    "netlify:prod": "yarn build:prod && netlify dev",
     "tscheck": "tsc",
     "test": "jest"
   },

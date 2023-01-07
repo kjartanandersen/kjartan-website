@@ -1,7 +1,6 @@
 import axios, { Axios, AxiosResponse } from "axios";
 import { ProfileProp } from "../_types/ProfileProps.d";
 import { profileData } from "../Db/profileData";
-import { EnvType } from "../globals";
 
 const prod_config = {
   headers: {'Ocp-Apim-Subscription-Key': '496fcaa404a2454bb5d6a2f45e5cd95d'}
@@ -46,26 +45,21 @@ export async function getProfileFromAPI(url: string) {
   }
 }
 
-export async function getProfileFromLocalDb() {
-  try {
-    return profileData;
-  } catch (error) {
-    console.error(error)
-    throw error;
-  }
-}
-
 export async function getProfile() {
   let env: AxiosResponse<ProfileProp>;
   try {
     // console.log(process.env.NODE_ENV)
-    // if (!process.env.NODE_ENV === undefined) {
-    //   env = await axios.get<ProfileProp[]>('https://kjartanmar.netlify.app/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
-    // } else {
-    //   env = await axios.get<ProfileProp[]>('http://localhost:8888/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
-    // }
-    env = await axios.get<ProfileProp>('http://localhost:8888/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
-    console.log(env.data)
+    if (process.env.NODE_ENV === 'production') {
+      env = await axios.get<ProfileProp>('https://kjartanmar.netlify.app/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
+    } else {
+      if (process.env.REACT_APP_DB_HOST === 'mongodb') {
+        env = await axios.get<ProfileProp>('http://localhost:8888/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
+      } else {
+        return profileData;
+      }
+      
+    }
+    // env = await axios.get<ProfileProp>('http://localhost:8888/.netlify/functions/get-env', {headers: {"Accept": 'text/plain'}});
 
 
     if (env.status !== 200) {throw new Error("Error getting environment values")}

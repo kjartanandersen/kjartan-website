@@ -9,13 +9,14 @@
   width: 75px;
   height: 25px;
 
-  background-color: red;
+  background-color: rgb(34, 100, 221);
 }
 
 .navbar {
-  background-color: white;
+  background-color: rgb(78, 141, 214);
   width: 100%;
-  box-shadow: 0 4px 18px 0 rgba(130, 175, 202, 0.2);
+  box-shadow: 0 4px 18px 0 rgba(226, 231, 235, 0.2);
+  height: 50px;
   /* border-bottom: solid;
   border-width: 1px;
   border-color: rgb(201, 193, 193); */
@@ -32,17 +33,39 @@
 }
 
 .nav-link {
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   width: 100px;
-  margin-bottom: 10px;
-  margin-top: 5px;
+  margin-bottom: 20px;
+  /* margin-top: 5px;  */
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
+  
+  color: white;
 }
 
-.nav-active {
-  color: blue;
+.nav-active-home {
+  color: rgb(250, 191, 191);
+  border-bottom: 1px solid transparent;
+  /* margin-bottom: 9px;
+  margin-top: 5px; */
+  border-color: rgb(243, 184, 184);
+}
+
+.nav-active-cv {
+  color: rgb(195, 241, 195);
+  border-bottom: 1px solid transparent;
+  /* margin-bottom: 9px;
+  margin-top: 5px; */
+  border-color: rgb(65, 236, 65);
+}
+
+.nav-active-todo {
+  color: rgb(182, 182, 245);
+  border-bottom: 1px solid transparent;
+  /* margin-bottom: 9px;
+  margin-top: 5px; */
+  border-color: rgb(80, 80, 253);
 }
 
 .navbar-item {
@@ -67,11 +90,7 @@
 .nav-link:hover {
   color: black;
   border-bottom: 1px solid transparent;
-  margin-bottom: 9px;
-  margin-top: 5px;
+  /* margin-bottom: 9px;
+  margin-top: 5px; */
   border-color: rgb(162, 209, 162);
-}
-
-.navbar-footer-copy {
-
 }

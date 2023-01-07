@@ -10,23 +10,25 @@ const NavBar = ({activeComp, children}: Props) => {
   return (
     
     <div className='nav-container'>
+        
           <div className='navbar'>
             <div className="navbar-nav">
               <div className='navbar-item'>
-                <Link to='/' className={`nav-link ${activeComp === "home" ? "nav-active" : ""}`} >About</Link>
+                <Link to='/' className={`nav-link ${activeComp === "home" ? "nav-active-home" : ""}`} >About</Link>
               </div>
               
               <div className='navbar-item'>
-                <Link to='/cv' className={`nav-link ${activeComp === "cv" ? "nav-active" : ""}`} >My CV</Link>  
+                <Link to='/cv' className={`nav-link ${activeComp === "cv" ? "nav-active-cv" : ""}`} >My CV</Link>  
               </div>
               
               <div className='navbar-item'>
-                <Link to='/todo' className={`nav-link ${activeComp === "todo" ? "nav-active" : ""}`}>Todo App</Link>  
+                <Link to='/todo' className={`nav-link ${activeComp === "todo" ? "nav-active-todo" : ""}`}>Todo App</Link>  
               </div>
-               
+              
               
             </div>
-            </div>
+          </div>
+
 
       {children}
 
@@ -36,6 +38,7 @@ const NavBar = ({activeComp, children}: Props) => {
             Copyright: {new Date().getFullYear()}
           </p>
         </div>
+
     </div>
   );
 };

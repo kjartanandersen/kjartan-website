@@ -8,8 +8,8 @@ import cvImage from "./components/CV/cv_image.jpg";
 const App: React.FC = () => {
 
 useEffect(() => {
-  
-});
+  console.log(process.env.NODE_ENV)
+}, []);
 
 return (
   <div>
@@ -19,7 +19,7 @@ return (
         <img src={cvImage} className="home-image" />
         <div className="home-aboutme">
           <h1 className="home-name"><b>Kjartan Már Andersen</b></h1>
-          <h4><b>About Me:</b></h4>
+          <h4><b> Me:</b></h4>
           <p>
             I am a passionate recent computer science graduate and experienced
             software developer, who specializes in web development in frameworks

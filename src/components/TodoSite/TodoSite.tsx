@@ -22,8 +22,6 @@ const TodoSite: React.FC<{ name?: string }> = ({ name }) => {
 
   }
 
-  console.log(todos);
-
   return (
     <NavBar activeComp='todo' >
     
