@@ -45,6 +45,14 @@ export async function getProfileFromAPI(url: string) {
   }
 }
 
+export async function getProfileFromLocal() {
+  try {
+    return profileData;
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 export async function getProfile() {
   let env: AxiosResponse<ProfileProp>;
   try {

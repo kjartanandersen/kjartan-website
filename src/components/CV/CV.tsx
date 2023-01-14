@@ -2,7 +2,8 @@ import { render } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import {
   getProfileFromAPI,
-  getProfile
+  getProfile,
+  getProfileFromLocal
 } from "../../helpers/cv-storage";
 import { IProps, ProfileProp, SkillProp } from "../../_types/ProfileProps.d";
 
@@ -36,8 +37,8 @@ const CV: React.FC<IProps> = () => {
 
 
   useEffect(() => {
-    getProfile().then((resp) => {
-      setProfileList(resp);
+    getProfileFromLocal().then((resp) => {
+      setProfileList(resp!);
       setDoneProcessing(true);
     });
   }, []);

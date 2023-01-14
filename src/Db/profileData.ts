@@ -109,13 +109,6 @@ export const profileData: ProfileProp = {
     ],
     "work_experiences": [
         {
-            "company_name": "N1",
-            "date_from": "2016",
-            "date_to": "2021",
-            "occupation": "Cashier",
-            "description": ""
-        },
-        {
             "company_name": "Reykjavik University",
             "date_from": "2020",
             "date_to": "2020",

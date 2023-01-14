@@ -3,7 +3,7 @@
 [build.environment]
     
 [dev]
-    # command = "yarn dev"
-    # port = 8888
-    # targetPort = 3000
-    # framework = "#custom"
+    command = "yarn dev"
+    port = 8888
+    targetPort = 3000
+    framework = "#custom"
