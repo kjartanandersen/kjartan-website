@@ -1,39 +1,143 @@
 .home {
-    background-color: rgb(77, 75, 75);
-    min-height: 100vh;
-}
-
-.home-info {
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    display: flex;
-    float: auto;
-    width: 80%;
-    color: white;
-}
-
-.home-image {
-
-    width: 300px;
-    height: 300px;
-    border-radius: 180px;
-    border-style: solid;
-    border: 1px solid;
+    margin-left: 0;
+    background-color: rgb(58, 66, 58);
+    padding-bottom: 60px;
+    
     
 }
 
-.home-aboutme {
-    margin: 30px;
-    width: 450px;
+.home-hero {
+    background-color: rgb(58, 66, 58);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 879px;
+    color: white;
+    
 }
 
-.home-name {
-    margin-bottom: 30px;
+.home-hero > h1 {
+    font-size: 52px;
 }
+
+.home-content {
+    padding: 30px;
+    margin-left: 300px;
+    border-radius: 45px;
+    background-color: white;
+    width: 70%;
+    height: 500px;    
+}
+
+.home-info {
+    display: flex;
+}
+
+.home-image {
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 180px;
+    width: 200px;
+    height: 200px;
+}
+
+.home-about-text {
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    border-bottom: 3px solid green;
+    
+}
+
+.flex {
+    display: flex;
+    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.home-bubble-link {
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 180px;
+    color: black;
+    text-decoration: none;
+    padding-top: 40px;
+    width: 125px;
+    height: 125px;
+    background-color: orange;
+    font-size: 20px;
+}
+
+.home-bubble-link:hover {
+    color: black;
+    animation-name: bubbleColChange;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bubbleColChange {
+    from {
+        background-color: orange;
+    }
+    to {
+        background-color: rgb(169, 224, 169);
+    }
+}
+
 
 @media (max-width: 1024px) {
+    .home-content {
+        margin-left: 100px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .home-content {
+        padding: 30px;
+        margin-left: 40px;
+        border-radius: 45px;
+        width: 90%;
+        height: 500px;    
+    }
+}
+
+@media (max-width: 767px) {
+    .home-hero {
+        height: 879px;
+        color: white;
+        
+    }
+    
+    .home-hero > h1 {
+        font-size: 30px;
+    }
+    .home-hero > h4 {
+        font-size: 16px;
+    }
+
     .home-info {
-        left: 10%;
+        flex-direction: column;
+    }
+    .home-image {
+        
+        
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .home-content {
+        padding: 30px;
+        margin-left: 20px;
+        border-radius: 45px;
+        background-color: white;
+        width: 90%;
+        height: 900px;    
     }
 }

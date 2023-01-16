@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRouteError, isRouteErrorResponse } from 'react-router-dom'
+import { useRouteError, isRouteErrorResponse, Link } from 'react-router-dom'
 
 
 
@@ -17,6 +17,7 @@ const NotFound: React.FC = () => {
                 <p>
                     <i>{error.statusText || error.status}</i>
                 </p>
+                <Link to='/'>Go Back</Link>
             </div>
           )
     }

@@ -7,7 +7,7 @@ import App from "./App";
 
 import NotFound from "./NotFound";
 import CV from "./components/CV/CV";
-import TodoSite from "./components/TodoSite/TodoSite";
+import Projects from "./components/Projects/Projects";
 
 // const App = React.lazy(() => import('./App'));
 // const NotFound = React.lazy(() => import('./NotFound'));
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     },
     {
       path: "todo",
-      element: <TodoSite />,
+      element: <Projects />,
       errorElement: <NotFound />,
     }
 ])

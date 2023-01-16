@@ -1,21 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@300&display=swap');
+
 
 .nav-container {
   position: relative;
   min-height: 100vh;
 }
 
-.nav-link-box {
-  width: 75px;
-  height: 25px;
-
-  background-color: rgb(34, 100, 221);
-}
 
 .navbar {
-  background-color: rgb(78, 141, 214);
+  background-color: rgb(48, 99, 48);
+
   width: 100%;
-  box-shadow: 0 4px 18px 0 rgba(226, 231, 235, 0.2);
+  box-shadow: 0 4px 18px 0 rgba(103, 182, 103, 0.2);
   height: 50px;
   display: flex;
   justify-content: center;
@@ -41,14 +37,13 @@
   width: 100px;
   margin-bottom: 20px;
   /* margin-top: 5px;  */
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
   
-  color: white;
+  color: rgb(253, 253, 253);
 }
 
 .nav-active-home {
-  color: rgb(250, 191, 191);
+  color: rgb(191, 218, 250);
   border-bottom: 1px solid transparent;
   /* margin-bottom: 9px;
   margin-top: 5px; */
@@ -72,17 +67,19 @@
 }
 
 .navbar-footer {
+  
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 2.5rem;
+  height: 3rem;
   text-align: center;
   background-color: white;
-  position: absolute;
   bottom: 0;
   border-top: solid;
   border-width: 1px;
   border-color: rgb(201, 193, 193);
+  min-height: 5vh;
 }
 
 .nav-link:hover {

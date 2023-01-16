@@ -18,7 +18,7 @@ const NavBar = ({activeComp, children}: Props) => {
               </div>
               
               <div className='navbar-item'>
-                <Link to='/cv' className={`nav-link ${activeComp === "cv" ? "nav-active-cv" : ""}`} >My CV</Link>  
+                <Link to='/cv' className={`nav-link ${activeComp === "cv" ? "nav-active-cv" : ""}`} >My Portfolio</Link>  
               </div>
               
               <div className='navbar-item'>

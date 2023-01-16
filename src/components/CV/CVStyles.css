@@ -44,6 +44,10 @@
     to   { margin-left: 0; }
 }
 
+.spinner-height {
+  height: 1024px;
+}
+
 .lds-spinner {
     top: 200px;
     width: 100%;

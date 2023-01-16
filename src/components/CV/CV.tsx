@@ -1,8 +1,5 @@
-import { render } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import {
-  getProfileFromAPI,
-  getProfile,
   getProfileFromLocal
 } from "../../helpers/cv-storage";
 import { IProps, ProfileProp, SkillProp } from "../../_types/ProfileProps.d";
@@ -11,50 +8,19 @@ import NavBar from "../NavBar/NavBar";
 
 import "./CVStyles.css";
 import cvImage from "./cv_image.jpg";
+import { profileData } from "../../Db/profileData";
 
-const defaultProfile: ProfileProp = {
-  id: "",
-  name: "",
-  about_me: "",
-  current_residence: "",
-  date_of_birth: new Date(),
-  ssn: "",
-  phone: "",
-  email: "",
-  hobbies: [],
-  languages: [],
-  skills: [],
-  references: [],
-  education: [],
-  work_experiences: [],
-  links: [],
-};
+const profileList: ProfileProp = profileData;
 
 const CV: React.FC<IProps> = () => {
-  const [doneProcessing, setDoneProcessing] = useState(false);
-  const [profileList, setProfileList] = useState<ProfileProp>(defaultProfile);
-
-
-
-  useEffect(() => {
-    getProfileFromLocal().then((resp) => {
-      setProfileList(resp!);
-      setDoneProcessing(true);
-    });
-  }, []);
+  
 
   return (
     <div>
       
       <NavBar activeComp="cv">
-
-        {!doneProcessing && (
-          <div className="lds-spinner">
-            <div className="lds-default"> <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-          </div>
-        )}
         
-        {doneProcessing && (
+        {(
           <div className="cv-page">
             <div className="cv-title">
               <h1>
@@ -123,55 +89,11 @@ const CV: React.FC<IProps> = () => {
                 <hr className="cv-line-border-right"></hr>
                 <div>
                   <p>
-                    {(() => {
-                      let elements: JSX.Element[] = [];
-                      let ExSkills: SkillProp[] = [];
-                      let GoodSkills: SkillProp[] = [];
-
-                      profileList.skills.map((skill) => {
-                        skill.proficiency == "Excellent"
-                          ? ExSkills.push(skill)
-                          : GoodSkills.push(skill);
-                      });
-
-                      elements.push(<b> Excellent: </b>);
-
-                      ExSkills.map((skill, index) => {
-                        if (index == ExSkills.length - 1) {
-                          elements.push(
-                            <React.Fragment key={index}>
-                              {skill.name}
-                            </React.Fragment>
-                          );
-                        } else {
-                          elements.push(
-                            <React.Fragment key={index}>
-                              {skill.name + ", "}
-                            </React.Fragment>
-                          );
-                        }
-                      });
-                      elements.push(<br />);
-                      elements.push(<b> Good: </b>);
-
-                      GoodSkills.map((skill, index) => {
-                        if (index == GoodSkills.length - 1) {
-                          elements.push(
-                            <React.Fragment key={index}>
-                              {skill.name}
-                            </React.Fragment>
-                          );
-                        } else {
-                          elements.push(
-                            <React.Fragment key={index}>
-                              {skill.name + ", "}
-                            </React.Fragment>
-                          );
-                        }
-                      });
-
-                      return elements;
-                    })()}
+                    {
+                      profileList.skills.map((el) => {
+                        return el.name + ', ';
+                      })
+                    }
                   </p>
                 </div>
               </div>
