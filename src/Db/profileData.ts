@@ -5,7 +5,7 @@ export const profileData: ProfileProp = {
     "name": "Kjartan Már Andersen",
     "about_me": "I am a passionate recent computer science graduate and experienced software developer, who specializes in web development in frameworks like React and .NET. I am also experienced inprogramming languages like JavaScript, C#, C, C++, SQL, Java, Python and more",
     "current_residence": "Reykjavik, Iceland",
-    "date_of_birth": new Date("2017-09-08T16:01:55.714942+00:00"),
+    "date_of_birth": new Date("1996-09-23T00:00:00.000000+00:00"),
     "ssn": "2309962379",
     "phone": "+354 820-9623",
     "email": "kjartan1@live.com",

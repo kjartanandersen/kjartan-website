@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  getProfileFromLocal
-} from "../../helpers/cv-storage";
-import { IProps, ProfileProp, SkillProp } from "../../_types/ProfileProps.d";
+import React from "react";
+import { IProps, ProfileProp } from "../../_types/ProfileProps.d";
 
 import NavBar from "../NavBar/NavBar";
 
@@ -39,9 +36,6 @@ const CV: React.FC<IProps> = () => {
                     {new Date(profileList.date_of_birth).toLocaleDateString(
                       "en-GB"
                     )}{" "}
-                    <br />
-                    <b>Kennitala: </b>
-                    {profileList.ssn}
                   </p>
                 </div>
               </div>
@@ -64,23 +58,6 @@ const CV: React.FC<IProps> = () => {
             </div>
 
             <div>
-              <div className="cv-right-side-card">
-                <h2>
-                  <b>Hobbies</b>
-                </h2>
-                <hr className="cv-line-border-right"></hr>
-                <div>
-                  <p>
-                    {profileList.hobbies.map((hobby, index) => {
-                      return (
-                        <React.Fragment key={index}>
-                          {hobby} <br />
-                        </React.Fragment>
-                      );
-                    })}
-                  </p>
-                </div>
-              </div>
               
               <div className="cv-right-side-card">
                 <h2>
@@ -142,6 +119,24 @@ const CV: React.FC<IProps> = () => {
                     </p>
                   );
                 })}
+              </div>
+
+              <div className="cv-right-side-card">
+                <h2>
+                  <b>Hobbies</b>
+                </h2>
+                <hr className="cv-line-border-right"></hr>
+                <div>
+                  <p>
+                    {profileList.hobbies.map((hobby, index) => {
+                      return (
+                        <React.Fragment key={index}>
+                          {hobby} <br />
+                        </React.Fragment>
+                      );
+                    })}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

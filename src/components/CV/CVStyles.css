@@ -3,7 +3,7 @@
 .cv-page {
     padding: 50px;
     display: flex;
-    background-color: rgb(77, 75, 75);
+    background-color: rgb(83, 83, 63);
     color: white;
     
     
@@ -18,7 +18,7 @@
     height: 300px;
     border-radius: 20px;
     border-style: solid;
-    border: solid;
+    
 }
 
 .cv-right-side-card {
@@ -30,8 +30,8 @@
 }
 
 .cv-line-border-right {
-    height: 2px;
-    color: rgb(10, 10, 240);    
+    border-width: 6px;
+    color: rgb(10, 117, 240);    
 }
 
 @keyframes fadein {
@@ -137,3 +137,28 @@
       transform: scale(1.5);
     }
   }
+
+@media (max-width: 768px) {
+  .cv-page {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .cv-page {
+    width: 100%;
+  }
+  
+  .cv-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cv-right-side-card {
+    margin: 0;
+    margin-top: 30px;
+    text-align: left;
+  }
+}
+
