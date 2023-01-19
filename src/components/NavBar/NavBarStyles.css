@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@300&display=swap');
 
 
-.nav-container {
-  position: relative;
-  min-height: 100vh;
-}
 
 
 .navbar {
@@ -20,6 +16,7 @@
   /* border-bottom: solid;
   border-width: 1px;
   border-color: rgb(201, 193, 193); */
+  position: fixed;
 }
 
 .navbar-nav {
@@ -138,8 +135,12 @@
 @media (max-width: 420px) {
 
   .navbar {
-    padding-bottom: 70px;
+    height: 80px;
     
+  }
+
+  .nav-link {
+    font-size: 13px;
   }
 
   .navbar-footer {
@@ -158,6 +159,7 @@
   .navbar-footer-copy-and-links {
     flex-direction: column;
     text-align: center;
+    gap: 20px;
   }
 
   .navbar-footer-sociallinks {

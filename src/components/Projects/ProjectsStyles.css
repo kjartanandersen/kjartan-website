@@ -1,0 +1,8 @@
+.projects {
+    padding-top: 150px;
+    padding-left: 30px;
+    background-color: rgb(58, 66, 58);;
+    width: 100%;
+    height: 1500px;
+    display: flex;
+}
