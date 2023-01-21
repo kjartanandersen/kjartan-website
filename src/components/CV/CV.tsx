@@ -35,6 +35,23 @@ const CV: React.FC<IProps> = () => {
                       "en-GB"
                     )}{" "}
                   </p>
+                  <b>Languages:</b>
+                    <p>
+
+                    {
+                      profileList.languages.map((language) => {
+                        return (
+                          
+                          <><b>{language.name}: </b>
+                          {language.proficiency}
+                          <br />
+                          </>
+                          )
+                          
+                        })
+                      }
+                      </p>
+ 
                 </div>
               </div>
 

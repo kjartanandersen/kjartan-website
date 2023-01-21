@@ -51,8 +51,8 @@
 }
 
 .cv-line-border-right {
-    border-width: 6px;
-    color: rgb(0, 47, 255);    
+    border-width: 2px;
+    color: rgb(0, 0, 0);    
 }
 
 @keyframes fadein {

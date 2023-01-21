@@ -17,14 +17,16 @@ export const profileData: ProfileProp = {
         "Football"
     ],
     "languages": [
-        {
-            "name": "English",
-            "proficiency": "Proficient"
-        },
+        
         {
             "name": "Icelandic",
             "proficiency": "Mother Language"
+        },
+        {
+            "name": "English",
+            "proficiency": "Proficient"
         }
+        
     ],
     "skills": [
         {

@@ -140,4 +140,8 @@
         width: 90%;
         height: 1000px;    
     }
+
+    .home-bubble-link {
+        font-size: 16px;
+    }
 }
