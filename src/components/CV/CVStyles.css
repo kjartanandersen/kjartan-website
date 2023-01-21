@@ -3,11 +3,20 @@
 .cv-page {
     padding: 50px;
     padding-top: 100px;
-    display: flex;
     background-color: rgb(58, 66, 58);
     color: white;
-    
-    
+}
+
+.cv-page-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 30px;
+}
+
+.cv-img-header {
+  margin: 30px;
+  padding: 10px;
+  
 }
 
 .cv-image {
@@ -16,18 +25,34 @@
     border-radius: 20px;
     border-style: solid;
     
+    
 }
 
-.cv-right-side-card {
+.cv-title {
+  width: 400px;
+}
+
+.cv-work-and-ed {
+  width: 700px;
+  margin-top: 100px;
+}
+
+.cv-card {
     margin: 30px;
     padding: 10px;
-    
-    
+    background-color: rgb(206, 196, 169);
+    border-radius: 15px;
+    color:  rgb(0, 0, 0);
+
+}
+
+.cv-card > h2 {
+  text-align: center;
 }
 
 .cv-line-border-right {
     border-width: 6px;
-    color: rgb(10, 117, 240);    
+    color: rgb(0, 47, 255);    
 }
 
 @keyframes fadein {
@@ -138,6 +163,14 @@
   .cv-page {
     flex-direction: column;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .cv-page-cards {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -149,12 +182,20 @@
   .cv-image {
     width: 150px;
     height: 150px;
+    margin: 0;
   }
 
-  .cv-right-side-card {
+  .cv-card {
     margin: 0;
     margin-top: 30px;
+    margin-left: 40px;
     text-align: left;
+    width: 80%;
+    
+  }
+
+  .cv-work-and-ed {
+    width: 400px;
   }
 }
 

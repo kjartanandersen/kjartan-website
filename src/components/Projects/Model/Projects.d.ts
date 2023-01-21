@@ -2,5 +2,6 @@ export type Props = {
     title: string,
     descrpition: string,
     technology: string[],
-    image: string
+    image: string,
+    link: string
 };

@@ -39,7 +39,7 @@ const App: React.FC = () => {
             </div>
             <div className="flex">
               
-                <Link to='/cv' className="home-bubble-link"><div>Portfolio </div></Link>
+                <Link to='/cv' className="home-bubble-link"><div>My Resume </div></Link>
                 <Link to='/projects' className="home-bubble-link"><div>Projects </div></Link>
               
             </div>
