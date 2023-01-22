@@ -17,6 +17,7 @@
   border-width: 1px;
   border-color: rgb(201, 193, 193); */
   position: fixed;
+  z-index: 2;
 }
 
 .navbar-nav {

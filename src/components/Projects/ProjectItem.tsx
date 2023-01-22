@@ -6,7 +6,7 @@ import "./ProjectItemStyles.css";
 
 const ProjectItem: React.FC<Props> = (props: Props) => {
   return (
-    <a href={props.link}>
+    <a className="project-item-link" href={props.link}>
       <div className="project-item">
         <img src={props.image}></img>
         <hr></hr>

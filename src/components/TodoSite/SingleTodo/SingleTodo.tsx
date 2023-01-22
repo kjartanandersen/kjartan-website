@@ -9,18 +9,22 @@ type Props = {
   index: number;
   todo: Todo;
   todos: Todo[];
+  completedTodos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 };
 
-function SingleTodo({ index, todo, todos, setTodos }: Props) {
+function SingleTodo({ index, todo, todos, completedTodos, setTodos, setCompletedTodos }: Props) {
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, setEditTodo] = useState<string>(todo.todo);
 
+
   const handleDone = (id: number) => {
+    setCompletedTodos((todos) => {
+      return [...todos, {todo: todo.todo, isDone: !todo.isDone, id: todo.id}];
+    });
     setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-      )
+      todos.filter((todo) => todo.id !== id)
     );
   };
 
@@ -31,9 +35,17 @@ function SingleTodo({ index, todo, todos, setTodos }: Props) {
   const handleEdit = (e: React.FormEvent, id: number) => {
     e.preventDefault();
 
-    setTodos(
-      todos.map((todo) => (todo.id === id ? { ...todo, todo: editTodo } : todo))
-    );
+    if (todo.isDone) {
+      setCompletedTodos(
+        completedTodos.map((todo) => (todo.id === id ? {...todo, todo: editTodo} : todo))
+      )
+    }
+    else {
+
+      setTodos(
+        todos.map((todo) => (todo.id === id ? { ...todo, todo: editTodo } : todo))
+        );
+    }
     setEdit(false);
   };
 
@@ -52,7 +64,7 @@ function SingleTodo({ index, todo, todos, setTodos }: Props) {
           className="todos_single--text"
         />
       ) : todo.isDone ? (
-        <s className="todos_single--text">{todo.todo}</s>
+        <span className="todos_single--text">{todo.todo}</span>
       ) : (
         <span className="todos_single--text">{todo.todo}</span>
       )}
@@ -61,7 +73,7 @@ function SingleTodo({ index, todo, todos, setTodos }: Props) {
         <span
           className="icon"
           onClick={() => {
-            if (!edit && !todo.isDone) {
+            if (!edit ) {
               setEdit(!edit);
             }
           }}
@@ -71,9 +83,9 @@ function SingleTodo({ index, todo, todos, setTodos }: Props) {
         <span className="icon" onClick={() => handleDelete(todo.id)}>
           <AiFillDelete />
         </span>
-        <span className="icon">
+        {!todo.isDone ? <span className="icon">
           <MdDone onClick={() => handleDone(todo.id)} />
-        </span>
+        </span> : ""}
       </div>
     </form>
   );

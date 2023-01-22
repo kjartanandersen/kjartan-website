@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-a {
+.project-item-link {
     text-decoration: none;
+    color: black;
+}
+
+.project-item-link:hover {
     color: black;
 }
 
@@ -53,13 +57,12 @@ a {
     text-decoration: none;
     
 }
-
 .project-item > img {
     
     border: 2px solid white;
     border-radius: 10px;
     height: 120px;
-    width: auto;
+    max-width: 240px;
 }
 
 .project-item > hr {
