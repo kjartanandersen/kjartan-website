@@ -85,7 +85,7 @@ workflows:
 
   build-deploy:
     jobs:
-      - build:
+      - build-app:
           filters:
             branches:
               only:
