@@ -2,17 +2,34 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.2
 jobs:
-  build-and-test:
+  build:
+    working_directory: ~/repo
     docker:
-      - image: "cimg/base:stable"
+      - image: circleci/node:latest
+
+    ## setup
     steps:
       - checkout
-      - node/install:
-          node-version: "12.22"
-      - node/install-packages
+
+      - restore_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: yarn install
+
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
+
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
+      ## run tests
       - run:
-          command: npm run test
-workflows:
-  build-and-test:
-    jobs:
-      - build-and-test
+          name: jest tests
+          command: yarn test
