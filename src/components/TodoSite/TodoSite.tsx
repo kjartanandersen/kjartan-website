@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './App.css';
 import InputField from './InputField/InputField';
 import { Todo } from './Model/Model';
 import TodoList from './TodoList/TodoList';
 import NavBar from '../NavBar/NavBar';
 
+import './App.css';
 
 const TodoSite: React.FC<{ name?: string }> = ({ name }) => {
 

@@ -1,11 +1,11 @@
 // src/App.tsx
 import React from "react";
-
 import { Link } from "react-router-dom";
 
-import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import cvImage from "./components/CV/cv_image.jpg";
+
+import "./App.css";
 
 const App: React.FC = () => {
 

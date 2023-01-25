@@ -20,6 +20,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-native": "^11.5.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/babel__core": "^7.1.20",
     "@types/babel__template": "^7.4.1",
     "@types/dotenv-webpack": "^7.0.3",

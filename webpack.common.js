@@ -22,8 +22,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
-      },
-      {test: /\.(jpe?g|png|gif|svg)$/i, use: [{loader: "url-loader?name=src/CV/[name].[ext]"} ]},
+      }
     ],
   },
   resolve: {
