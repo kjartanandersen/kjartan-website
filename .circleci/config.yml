@@ -1,12 +1,4 @@
 version: 2.1
-workflows:
-  test-build-app:
-    jobs:
-      - test-app
-      - build-app:
-          requires:
-            - test-app
-
 orbs:
   node: circleci/node@5.0.2
 jobs:
@@ -84,6 +76,13 @@ jobs:
 
 workflows:
   version: 2
+  test-build-app:
+    jobs:
+      - test-app
+      - build-app:
+          requires:
+            - test-app
+
   build-deploy:
     jobs:
       - build:
