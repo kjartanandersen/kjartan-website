@@ -64,7 +64,7 @@ jobs:
       # Build App
       - run:
           name: Build React App
-          command: npm run build
+          command: npm run build:prod
 
       - save_cache:
           key: app-build-cache-{{ .Branch }}
@@ -82,10 +82,6 @@ workflows:
       - build-app:
           requires:
             - test-app
-
-  build-deploy:
-    jobs:
-      - build-app:
           filters:
             branches:
               only:
