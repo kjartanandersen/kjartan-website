@@ -13,7 +13,7 @@ export const profileData: ProfileProp = {
         "Video Games",
         "Movies",
         "Music",
-        "Compuers",
+        "Computers",
         "Football"
     ],
     "languages": [
