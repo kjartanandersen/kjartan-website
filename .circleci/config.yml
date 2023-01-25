@@ -5,7 +5,7 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:16.10.0
 
     ## setup
     steps:
