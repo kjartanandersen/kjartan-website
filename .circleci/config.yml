@@ -3,7 +3,7 @@ workflows:
   test-build-app:
     jobs:
       - test-app
-      - build-app
+      - build-app:
           requires:
             - test-app
 
