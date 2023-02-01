@@ -35,6 +35,10 @@ jobs:
 
     ## setup
     steps:
+      - restore_cache:
+          keys: 
+            - node-v1-{{ checksum "package.json" }}-{{ arch }}
+            - node-v1-
       # Build App
       - run:
           name: Build React App
