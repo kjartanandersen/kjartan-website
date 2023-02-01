@@ -1,0 +1,20 @@
+.education-card > div > h4 {
+  font-size: 2rem;
+}
+
+.education-card > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.education-card > div > img {
+  width: 100px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .education-card > div >h4 {
+    font-size: 1.5rem;
+  } 
+}

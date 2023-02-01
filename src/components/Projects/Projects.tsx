@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import ProjectItem from "./ProjectItem";
 import NavBar from "../NavBar/NavBar";
@@ -12,6 +12,10 @@ import "./ProjectsStyles.css";
 const projectItemsData: Props[] = projectItems;
 
 function Projects() {
+  useEffect(() => {
+    document.title = "Projects";
+  }, []);
+
   return (
     <NavBar activeComp="projects">
       <div className="projects">

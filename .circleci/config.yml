@@ -12,59 +12,33 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
-
-      - restore_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          keys: 
+            - node-v1-{{ checksum "package.json" }}-{{ arch }}
+            - node-v1-
 
       - run: yarn install
 
       - save_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
-          paths:
-            - ~/.cache/yarn
-
-      - save_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
           paths:
             - node_modules
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
 
       ## run tests
       - run:
           name: jest tests
           command: yarn test
   
-  build-app:
+  build-and-deploy-app:
     working_directory: ~/repo
     docker:
       - image: circleci/node:16.10.0
 
     ## setup
     steps:
-      - checkout
-
-      - restore_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
-
-      - restore_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
-
-      - run: yarn install
-
-      - save_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
-          paths:
-            - ~/.cache/yarn
-
-      - save_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
-          paths:
-            - node_modules
-
       # Build App
       - run:
           name: Build React App
-          command: npm run build:prod
+          command: yarn build:prod
 
       - save_cache:
           key: app-build-cache-{{ .Branch }}
@@ -72,14 +46,15 @@ jobs:
             - ./dist
       - run:
           name: Deploy to Netlify
-          command: ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=dist
+          # ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=dist
+          command: yarn netlify:deploy
 
 workflows:
   version: 2
-  test-build-app:
+  test-build-deploy-app:
     jobs:
       - test-app
-      - build-app:
+      - build-and-deploy-app:
           requires:
             - test-app
           filters:

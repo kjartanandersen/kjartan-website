@@ -1,25 +1,29 @@
 // src/App.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import NavBar from "./components/NavBar/NavBar";
-import cvImage from "./components/CV/cv_image.jpg";
+import cvImage from "./components/CV/Images/cv_image.jpg";
 
 import "./App.css";
 
-const App: React.FC = () => {
+const App = (): JSX.Element => {
+
+  useEffect(() => {
+    document.title = "Kjartan Már Andersen";
+  }, []);
 
   return (
     <div>
       <NavBar activeComp="home">
         <div className="home">
           <div className="home-hero">
-            <h1>Kjartan Már Andersen</h1>
+            <h1 data-testid="app-name">Kjartan Már Andersen</h1>
             <h4>Software Developer</h4>
           </div>
           <div className="home-content">
             <div className="home-info">
-              <img src={cvImage} className="home-image" />
+              <img src={cvImage} alt="An image of me" className="home-image" />
               <div className="home-aboutme">
                 <h4 className="home-about-text">
                   <b>About Me</b>

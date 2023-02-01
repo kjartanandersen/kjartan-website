@@ -10,7 +10,7 @@ import linkedinImg from './Images/linkedin.png';
 import githubImg from './Images/github.png';
 
 
-const NavBar = ({activeComp, children}: Props) => {
+const NavBar = ({activeComp, children}: Props): JSX.Element => {
   return (
     
     <div className='nav-container'>
@@ -43,9 +43,9 @@ const NavBar = ({activeComp, children}: Props) => {
               &#169; Kjartan Már Andersen {new Date().getFullYear()}
             </p>
             <div className='navbar-footer-sociallinks'>
-              <a href='https://twitter.com/KjartanAndersen'><img className='navbar-footer-sociallink' src={twitterImg}></img></a>
-              <a href='https://github.com/kjartanandersen'><img className='navbar-footer-sociallink' src={githubImg}></img></a>
-              <a href='https://is.linkedin.com/in/kjartan-m%C3%A1r-andersen-894abb1a6'><img className='navbar-footer-sociallink' src={linkedinImg}></img></a>
+              <a href='https://twitter.com/KjartanAndersen'><img className='navbar-footer-sociallink' alt='An image of the Twitter logo' src={twitterImg}></img></a>
+              <a href='https://github.com/kjartanandersen'><img className='navbar-footer-sociallink' alt='An image of the Github logo' src={githubImg}></img></a>
+              <a href='https://is.linkedin.com/in/kjartan-m%C3%A1r-andersen-894abb1a6'><img className='navbar-footer-sociallink' alt='An image of the LinkedIn logo' src={linkedinImg}></img></a>
             </div>
           </div>
           <div className='navbar-footer-attributes'>

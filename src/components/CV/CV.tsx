@@ -1,150 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IProps, ProfileProp } from "../../_types/ProfileProps.d";
 
 import NavBar from "../NavBar/NavBar";
+import ExperienceAndEducationCard from "./Card/ExperienceAndEducationCard";
 
 import "./CVStyles.css";
-import cvImage from "./cv_image.jpg";
 import { profileData } from "../../Db/profileData";
+import InfoCard from "./Card/InfoCard";
 
 const profileList: ProfileProp = profileData;
 
-const CV: React.FC<IProps> = () => {
+const CV = ({}: IProps): JSX.Element => {
+  useEffect(() => {
+    document.title = "My Resume";
+  }, []);
+
   return (
     <div>
-      <NavBar activeComp="cv-page">
+      <NavBar activeComp="cv">
         <div className="cv-page">
-          <div className="cv-page-cards">
-            <div className="cv-title">
-
-          <div className="cv-img-header">
-            <h1>
-              <b>{profileList.name}</b>
-            </h1>
-            <img src={cvImage} alt="" className="cv-image" />
-          </div>
-              <div className="cv-card">
-                <h2>
-                  <b>Profile</b>
-                </h2>
-                <hr className="cv-line-border-right"></hr>
-                <div>
-                  <p>
-                    <b>Date of Birth: </b>
-                    {new Date(profileList.date_of_birth).toLocaleDateString(
-                      "en-GB"
-                    )}{" "}
-                  </p>
-                  <b>Languages:</b>
-                    <p>
-
-                    {
-                      profileList.languages.map((language) => {
-                        return (
-                          
-                          <><b>{language.name}: </b>
-                          {language.proficiency}
-                          <br />
-                          </>
-                          )
-                          
-                        })
-                      }
-                      </p>
- 
-                </div>
-              </div>
-
-              <div className="cv-card">
-                <h2>
-                  <b>Contact</b>
-                </h2>
-                <hr className="cv-line-border-right"></hr>
-                <div>
-                  <p>
-                    <b>Phone: </b>
-                    {profileList.phone}
-                    <br />
-                    <b>Email: </b>
-                    {profileList.email}
-                  </p>
-                </div>
-              </div>
-              <div className="cv-card">
-                <h2>
-                  <b>Skills</b>
-                </h2>
-                <hr className="cv-line-border-right"></hr>
-                <div>
-                  <p>
-                    {profileList.skills.map((el) => {
-                      return el.name + ", ";
-                    })}
-                  </p>
-                </div>
-              </div>
-
-              <div className="cv-card">
-                <h2>
-                  <b>Hobbies</b>
-                </h2>
-                <hr className="cv-line-border-right"></hr>
-                <div>
-                  <p>
-                    {profileList.hobbies.map((hobby, index) => {
-                      return hobby + ", ";
-                    })}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="cv-work-and-ed">
-              <div className="cv-card">
-                <h2>
-                  <b>Education</b>
-                </h2>
-                <hr className="cv-line-border-right"></hr>
-                {profileList.education.map((data, index) => {
-                  return (
-                    <div key={index}>
-                      <p>
-                        <b>
-                          {data.name} <br />
-                          {data.date_from} - {data.date_to}
-                          <br />
-                          {data.subject}{" "}
-                        </b>
-                        <br />
-                        {data.description}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className="cv-card">
-                <h2>
-                  <b>Work Experience</b>
-                </h2>
-                <hr className="cv-line-border-right"></hr>
-
-                {profileList.work_experiences.map((work_ex, index) => {
-                  return (
-                    <p key={index}>
-                      <b>
-                        {work_ex.company_name} <br />
-                        {work_ex.date_from} - {work_ex.date_to} <br />
-                        {work_ex.occupation}
-                      </b>{" "}
-                      <br />
-                      {work_ex.description}
-                    </p>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+          <InfoCard Info={profileList.info} Languages={profileList.languages} Links={profileList.links} References={profileList.references} Skills={profileList.skills}/>
+          <ExperienceAndEducationCard
+            Education={profileList.education}
+            WorkExperience={profileList.work_experiences}
+          />
         </div>
       </NavBar>
     </div>

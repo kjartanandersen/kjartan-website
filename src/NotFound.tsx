@@ -3,7 +3,7 @@ import { useRouteError, isRouteErrorResponse, Link } from 'react-router-dom'
 
 
 
-const NotFound: React.FC = () => {
+const NotFound = (): JSX.Element => {
     const error = useRouteError();
     if (isRouteErrorResponse(error)) {
         if (error.status === 401) {

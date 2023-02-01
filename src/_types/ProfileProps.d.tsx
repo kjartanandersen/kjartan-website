@@ -6,20 +6,32 @@ export interface IState {
     education: EducationProp[]
 }
 
-type EducationProp = {
+export type InfoProp = {
+    name: string,
+    about_me: string,
+    current_residence: string,
+    date_of_birth: Date,
+    ssn: string,
+    phone: string,
+    email: string,
+    image: string,
+}
+
+export type EducationProp = {
     name: string,
     date_from: string,
     date_to: string,
     subject: string,
     description: string
+    image: string
 }
 
-type LanguageProp = {
+export type LanguageProp = {
     name: string,
     proficiency: string
 }
 
-type ReferenceProp = {
+export type ReferenceProp = {
     name: string,
     email: string,
     phone: string
@@ -30,27 +42,22 @@ export type SkillProp = {
     proficiency: string
 }
 
-type WorkExperienceProp = {
+export type WorkExperienceProp = {
     company_name: string,
     date_from: string,
     date_to: string,
     occupation: string,
-    description: string
+    description: string,
+    image: string
 }
 
-type LinkProp = {
+export type LinkProp = {
     name: string,
     url: string
 }
 export type ProfileProp = {
     id: string,
-    name: string,
-    about_me: string,
-    current_residence: string,
-    date_of_birth: Date,
-    ssn: string,
-    phone: string,
-    email: string,
+    info: InfoProp,
     hobbies: string[]
     languages: LanguageProp[],
     skills: SkillProp[],
