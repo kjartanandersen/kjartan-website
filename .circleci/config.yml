@@ -35,6 +35,8 @@ jobs:
 
     ## setup
     steps:
+      - checkout
+      
       - restore_cache:
           keys: 
             - node-v1-{{ checksum "package.json" }}-{{ arch }}
