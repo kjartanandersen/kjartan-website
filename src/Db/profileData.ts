@@ -1,9 +1,9 @@
 import { ProfileProp } from "../_types/ProfileProps.d";
 
-import advaniaImage from './Images/advania.png';
-import ruImage from './Images/ru.jpg';
-import tskImage from './Images/taeknisk.png';
-import cvImage from '../components/CV/Images/cv_image.jpg';
+import advaniaImage from '../images/CV/advania.png';
+import ruImage from '../images/CV/ru.jpg';
+import tskImage from '../images/CV/taeknisk.png';
+import cvImage from '../images/CV/cv_image.jpg';
 
 export const profileData: ProfileProp = {
     "id": "63a906353e282d9b9ab8965d",
@@ -17,7 +17,7 @@ export const profileData: ProfileProp = {
         "email": "kjartan1@live.com",
         "image": cvImage,
     },
-    
+
     "hobbies": [
         "Video Games",
         "Movies",
@@ -26,7 +26,7 @@ export const profileData: ProfileProp = {
         "Football"
     ],
     "languages": [
-        
+
         {
             "name": "Icelandic",
             "proficiency": "Mother Language"
@@ -35,7 +35,7 @@ export const profileData: ProfileProp = {
             "name": "English",
             "proficiency": "Proficient"
         }
-        
+
     ],
     "skills": [
         {
@@ -111,7 +111,7 @@ export const profileData: ProfileProp = {
             "description": "My final project for my Bachelor’s was a video game that I made with 3 other students. It is a 3D physics puzzle game where the player uses a rope that he can spawn, and can attach it to objects and move them around using it. It was made in Unity using C# as a programming language.",
             "image": ruImage
         },
-        
+
         {
             "name": "Technical College",
             "date_from": "2012",
@@ -120,7 +120,7 @@ export const profileData: ProfileProp = {
             "description": "",
             "image": tskImage
         },
-        
+
     ],
     "work_experiences": [
         {
@@ -131,7 +131,7 @@ export const profileData: ProfileProp = {
             "description": "Worked as part of the Oracle team at Advania. I was tasked in developing and maintaining applications in Oracle APEX that customers would use for ledger reports. I also created and maintained packages in the database in PL/SQL that the applications would utilize. I also did some minor JavaScript on the applications.",
             "image": advaniaImage
         },
-        
+
         {
             "company_name": "Reykjavik University",
             "date_from": "2020",
@@ -140,7 +140,7 @@ export const profileData: ProfileProp = {
             "description": "Paid summer job where I was tasked in assisting a student developing his Master's thesis in autonomous UAV landing. I was tasked in setting up networks for the Raspberry Pi and Jetson Nano on the drone, and make network communications possible through USB.",
             "image": ruImage
         },
-        
+
     ],
     "links": [
         {

@@ -13,14 +13,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-bottom: solid;
-  border-width: 1px;
-  border-color: rgb(201, 193, 193); */
-  position: fixed;
   z-index: 2;
+
 }
 
 .navbar-nav {
+  backdrop-filter: inherit;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -38,7 +36,7 @@
   margin-bottom: 20px;
   /* margin-top: 5px;  */
   font-family: 'Poppins', sans-serif;
-  
+
   color: rgb(253, 253, 253);
 }
 
@@ -75,7 +73,7 @@
   border-width: 3px;
   border-color: gold;
   min-height: 5vh;
-  
+
 }
 
 .navbar-footer-copy-and-links {
@@ -130,7 +128,7 @@
 
   .navbar {
     height: 80px;
-    
+
   }
 
   .nav-link {
@@ -148,7 +146,7 @@
     height: 30px;
     width: 100%;
     text-align: center;
-  } 
+  }
 
   .navbar-footer-copy-and-links {
     flex-direction: column;
@@ -157,7 +155,7 @@
   }
 
   .navbar-footer-sociallinks {
-    
+
     /* width: 30px;
     height: auto;
     display: flex; */
@@ -166,7 +164,7 @@
   }
 
   .navbar-footer-copy {
-    
+
     font-size: 14px;
     width: 200px;
   }

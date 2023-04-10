@@ -1,9 +1,9 @@
 import { Props } from "../components/Projects/Model/Projects";
 
-import mySiteImage from '../components/Projects/Images/mysite.png';
-import coffeeQuestImage from '../components/Projects/Images/coffeQuest.png';
-import inABindImage from '../components/Projects/Images/inabind.png';
-import todoImage from '../components/Projects/Images/todo.png';
+import mySiteImage from '../images/Projects/mysite.png';
+import coffeeQuestImage from '../images/Projects/coffeQuest.png';
+import inABindImage from '../images/Projects/inabind.png';
+import todoImage from '../images/Projects/todo.png';
 
 
 
