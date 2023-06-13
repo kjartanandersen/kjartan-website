@@ -11,7 +11,7 @@
 
 .project-item {
     width: 280px;
-    height: 350px;
+    height: 500px;
     background-color: wheat;
     border-radius: 15px;
     padding: 10px;
@@ -24,7 +24,7 @@
 
 .project-item:hover {
     animation: .3s pro-item-on-hover forwards;
-    
+
 }
 
 @keyframes pro-item-on-hover {
@@ -55,14 +55,16 @@
     /* display: inline-block; */
     font-size: 14px;
     text-decoration: none;
-    
+    min-height: 60px;
+
 }
 .project-item > img {
-    
+
     border: 2px solid white;
     border-radius: 10px;
     height: 120px;
     max-width: 240px;
+    min-height: 150px;
 }
 
 .project-item > hr {
@@ -72,8 +74,8 @@
 
 .project-item-tech > p {
     text-align: center;
-    width: 75px;
-    font-size: 12px;
+    width: 71px;
+    font-size: 14px;
     display: inline-block;
     background-color: grey;
     border-radius: 15px;

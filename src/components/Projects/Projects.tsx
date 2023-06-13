@@ -8,6 +8,9 @@ import { Props } from "./Model/Projects";
 import { projectItems } from "../../Db/ProjectsData";
 
 import "./ProjectsStyles.css";
+import Particle from "../Home/Particle";
+
+
 
 const projectItemsData: Props[] = projectItems;
 
@@ -18,6 +21,7 @@ function Projects() {
 
   return (
     <NavBar activeComp="projects">
+      <Particle />
       <div className="projects">
         {projectItemsData.map((proItem) => {
           return (

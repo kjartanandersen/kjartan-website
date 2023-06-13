@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+* {
+    cursor: none;
+
+}
+
 body {
     font-family: 'Roboto', sans-serif;
+
+
 }
 
 .home {
     margin-left: 0;
-    background-color: rgb(58, 66, 58);
+    background-image: linear-gradient(270deg,#071228,#360c79);
     padding-top: 0px;
     padding-bottom: 300px;
 
@@ -14,7 +21,7 @@ body {
 }
 
 .home-hero {
-    background-color: rgb(58, 66, 58);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,7 +33,7 @@ body {
 
 .home-link-to-about-me {
 
-    background-color: rgb(81, 120, 81);
+    background-color: rgb(255, 255, 255);
     border-radius: 90px;
     height: 60px;
     width: 60px;
@@ -39,7 +46,8 @@ body {
 
 }
 .home-link-to-about-me:hover {
-    background-color: rgb(142, 175, 142);
+    background-color: rgb(144, 239, 144);
+    cursor: pointer;
 
 }
 
@@ -54,13 +62,19 @@ body {
     font-size: 52px;
 }
 
-.home-content {
-    padding: 30px;
+.flex-home {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    border-radius: 15px;
-    background-color: white;
-    width: 70%;
-    height: 500px;
+}
+
+.home-content {
+    color: white;
+    font-size: large;
+
 }
 
 .home-info {
@@ -69,7 +83,7 @@ body {
 
 .home-image {
     margin: 20px;
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 180px;
     width: 200px;
     height: 200px;
@@ -80,44 +94,55 @@ body {
     text-transform: uppercase;
     text-align: center;
     display: inline-block;
-    border-bottom: 3px solid green;
+    border-bottom: 3px solid rgb(161, 64, 170);
 
 }
 
 .flex {
     display: flex;
-    align-items: flex-end;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+
+
+    justify-content: end;
+    gap: 200px;
 }
 
 .home-bubble-link {
     text-align: center;
     border: 1px solid black;
-    border-radius: 180px;
+    border-radius: 45px;
     color: black;
     text-decoration: none;
-    padding-top: 40px;
+    padding-top: 15px;
     width: 125px;
-    height: 125px;
-    background-color: orange;
+    height: 65px;
+    background-color: white;
     font-size: 20px;
 }
 
 .home-bubble-link:hover {
-    color: black;
+    color: white;
     animation-name: bubbleColChange;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
+    box-shadow: 0 0 20px #87209e;
+    text-shadow: 0 0 8px #87209e;
 }
+
+.home-bubble-link:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #801f95;
+  }
+
+
+
+
 
 @keyframes bubbleColChange {
     from {
-        background-color: orange;
+        background-color: white;
     }
     to {
-        background-color: rgb(169, 224, 169);
+        background-color: rgb(191, 122, 214);
     }
 }
 
@@ -165,6 +190,12 @@ body {
         height: 100px;
     }
 
+    .flex-home {
+
+        width: 80%;
+
+    }
+
     .home-content {
         padding: 30px;
         margin-left: 20px;
@@ -177,3 +208,24 @@ body {
         font-size: 16px;
     }
 }
+
+::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #2d1950;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(178, 121, 216, 0.959);
+    border-radius: 12px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(222, 130, 235, 0.911);
+    border-radius: 12px;
+  }

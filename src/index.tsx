@@ -15,37 +15,35 @@ import TodoSite from "./components/TodoSite/TodoSite";
 // const CV = React.lazy(() => import('./components/CV/CV'));
 // const TodoSite = React.lazy(() => import('./components/TodoSite/TodoSite'));
 
-
-
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        errorElement: <NotFound />,
-    },
-    {
-        path: "cv",
-        element: <CV />,
-        errorElement: <NotFound />,
-    },
-    {
-      path: "projects",
-      element: <Projects />,
-      errorElement: <NotFound />,
-    },
-    {
-      path: "todo",
-      element: < TodoSite/>,
-      errorElement: <NotFound />,
-    }
-])
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: "cv",
+    element: <CV />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: "projects",
+    element: <Projects />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: "todo",
+    element: <TodoSite />,
+    errorElement: <NotFound />,
+  },
+]);
 
 const rootNode = document.getElementById("app");
 
 if (rootNode) {
   createRoot(rootNode).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </React.StrictMode>
   );
 }

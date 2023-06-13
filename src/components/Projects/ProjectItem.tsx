@@ -12,6 +12,8 @@ const ProjectItem: React.FC<Props> = (props: Props) => {
         <hr></hr>
         <h4>{props.title}</h4>
         <p>{props.descrpition}</p>
+        <hr></hr>
+        <h4>Tech</h4>
         <div className="project-item-tech">
           {props.technology.map((tech, index) => {
             return <p>{tech}</p>;

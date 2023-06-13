@@ -1,12 +1,12 @@
 .projects {
     padding-top: 150px;
     padding-left: 30px;
-    background-color: rgb(58, 66, 58);;
+    background-image: linear-gradient(270deg,#071228,#360c79);
     width: 100%;
     padding-bottom: 500px;
     height: auto;
     display: flex;
-    
+
     gap: 30px;
 }
 

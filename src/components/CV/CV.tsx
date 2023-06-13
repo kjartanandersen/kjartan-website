@@ -7,6 +7,7 @@ import ExperienceAndEducationCard from "./Card/ExperienceAndEducationCard";
 import "./CVStyles.css";
 import { profileData } from "../../Db/profileData";
 import InfoCard from "./Card/InfoCard";
+import Particle from "../Home/Particle";
 
 const profileList: ProfileProp = profileData;
 
@@ -17,6 +18,7 @@ const CV = ({}: IProps): JSX.Element => {
 
   return (
     <div>
+      <Particle />
       <NavBar activeComp="cv">
         <div className="cv-page">
           <InfoCard Info={profileList.info} Languages={profileList.languages} Links={profileList.links} References={profileList.references} Skills={profileList.skills}/>
