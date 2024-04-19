@@ -1,28 +1,24 @@
 import React, { useEffect } from "react";
 
 import ProjectItem from "./ProjectItem";
-import NavBar from "../NavBar/NavBar";
 
 import { Props } from "./Model/Projects";
 
 import { projectItems } from "../../Db/ProjectsData";
 
 import "./ProjectsStyles.css";
-import Particle from "../Home/Particle";
-
-
 
 const projectItemsData: Props[] = projectItems;
 
-function Projects() {
+const Projects: React.FC = () => {
   useEffect(() => {
     document.title = "Projects";
   }, []);
 
   return (
-    <NavBar activeComp="projects">
-      <Particle />
-      <div className="projects">
+    <div  className="projects">
+      <h1>Projects</h1>
+      <div className="projectItem">
         {projectItemsData.map((proItem) => {
           return (
             <ProjectItem
@@ -35,7 +31,7 @@ function Projects() {
           );
         })}
       </div>
-    </NavBar>
+    </div>
   );
 }
 

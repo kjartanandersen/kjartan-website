@@ -1,20 +1,22 @@
 .projects {
-    padding-top: 150px;
-    padding-left: 30px;
-    background-image: linear-gradient(270deg,#071228,#360c79);
-    width: 100%;
-    padding-bottom: 500px;
-    height: auto;
-    display: flex;
+  display: flex;
+  color: white;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-    gap: 30px;
+.projectItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
 }
 
 @media (max-width: 768px) {
-    .projects {
-
-        flex-direction: column;
-        align-items: center;
-    }
-
+  .projects {
+    flex-direction: column;
+    align-items: center;
+  }
 }

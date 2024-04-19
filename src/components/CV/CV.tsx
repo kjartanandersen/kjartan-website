@@ -18,8 +18,6 @@ const CV = ({}: IProps): JSX.Element => {
 
   return (
     <div>
-      <Particle />
-      <NavBar activeComp="cv">
         <div className="cv-page">
           <InfoCard Info={profileList.info} Languages={profileList.languages} Links={profileList.links} References={profileList.references} Skills={profileList.skills}/>
           <ExperienceAndEducationCard
@@ -27,7 +25,7 @@ const CV = ({}: IProps): JSX.Element => {
             WorkExperience={profileList.work_experiences}
           />
         </div>
-      </NavBar>
+      
     </div>
   );
 };

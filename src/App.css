@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-* {
-    cursor: none;
 
-}
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -13,7 +10,7 @@ body {
 
 .home {
     margin-left: 0;
-    background-image: linear-gradient(270deg,#071228,#360c79);
+    background: rgb(20, 34, 59);
     padding-top: 0px;
     padding-bottom: 300px;
 
@@ -27,7 +24,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 800px;
-    color: white;
+    color: rgb(255, 255, 255);
+    filter: drop-shadow(0 0.25rem 0.25rem rgb(0, 0, 0));
 
 }
 
@@ -68,23 +66,29 @@ body {
     width: 800px;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin-bottom: 0;
+    width: 100%;
 }
 
 .home-content {
     color: white;
     font-size: large;
+    display: flex;
+    justify-content: center;
 
 }
 
 .home-info {
+    width: 70%;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .home-image {
     margin: 20px;
     border: 3px solid black;
-    border-radius: 180px;
+
     width: 200px;
     height: 200px;
 }
@@ -107,33 +111,25 @@ body {
 }
 
 .home-bubble-link {
-    text-align: center;
-    border: 1px solid black;
     border-radius: 45px;
-    color: black;
+    display: inline-block;
+    color: rgb(129, 129, 129);
     text-decoration: none;
-    padding-top: 15px;
-    width: 125px;
-    height: 65px;
-    background-color: white;
-    font-size: 20px;
 }
 
 .home-bubble-link:hover {
     color: white;
-    animation-name: bubbleColChange;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    box-shadow: 0 0 20px #87209e;
-    text-shadow: 0 0 8px #87209e;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .home-bubble-link:hover::before {
     transform: scale(1.1);
-    box-shadow: 0 0 15px #801f95;
   }
 
-
+.href-anchor {
+    height: 200px;
+}
 
 
 
@@ -204,9 +200,7 @@ body {
         height: 1000px;
     }
 
-    .home-bubble-link {
-        font-size: 16px;
-    }
+
 }
 
 ::-webkit-scrollbar {

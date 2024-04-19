@@ -11,3 +11,4 @@ export type Props = {
   image: string;
   link: string;
 };
+

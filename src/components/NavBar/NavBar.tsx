@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Props } from "./Model/Model";
-import AnimatedCursor from "react-animated-cursor";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { AiOutlineFundProjectionScreen, AiOutlineHome, AiFillTwitterCircle } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
@@ -14,7 +13,7 @@ import linkedinImg from "../../images/NavBar/linkedin.png";
 import githubImg from "../../images/NavBar/github.png";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
-const NavBar = ({ activeComp, children }: Props): JSX.Element => {
+const NavBar = ({gotoHrefFunc, activeComp, children }: Props): JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [expand, updateExpanded] = useState<any>(false);
   const [navColour, updateNavbar] = useState(false);
@@ -33,27 +32,6 @@ const NavBar = ({ activeComp, children }: Props): JSX.Element => {
   const loadedComponent: JSX.Element = (
     <div className="nav-container">
       <ScrollToTop />
-      <AnimatedCursor
-        innerSize={16}
-        outerSize={16}
-        color="193, 11, 111"
-        outerAlpha={0.2}
-        innerScale={0.9}
-        outerScale={3}
-        clickables={[
-          "a",
-          'input[type="text"]',
-          'input[type="email"]',
-          'input[type="number"]',
-          'input[type="submit"]',
-          'input[type="image"]',
-          "label[for]",
-          "select",
-          "textarea",
-          "button",
-          ".link",
-        ]}
-      />
       <header>
         <Navbar
           expanded={expand}
@@ -78,8 +56,8 @@ const NavBar = ({ activeComp, children }: Props): JSX.Element => {
                 <Nav.Item>
                   <Nav.Link
                     as={Link}
-                    to="/"
-                    onClick={() => updateExpanded(false)}
+                    to=""
+                    onClick={() => gotoHrefFunc("home-about-href")}
                   >
                     <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
                   </Nav.Link>
@@ -88,8 +66,8 @@ const NavBar = ({ activeComp, children }: Props): JSX.Element => {
                 <Nav.Item>
                   <Nav.Link
                     as={Link}
-                    to="/projects"
-                    onClick={() => updateExpanded(false)}
+                    to=""
+                    onClick={() => gotoHrefFunc("projects-href")}
                   >
                     <AiOutlineFundProjectionScreen
                       style={{ marginBottom: "2px" }}
@@ -101,7 +79,7 @@ const NavBar = ({ activeComp, children }: Props): JSX.Element => {
                 <Nav.Item>
                   <Nav.Link
                     as={Link}
-                    to="/cv"
+                    to=""
                     onClick={() => updateExpanded(false)}
                   >
                     <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
@@ -163,18 +141,26 @@ const NavBar = ({ activeComp, children }: Props): JSX.Element => {
               &#169; Kjartan Már Andersen {new Date().getFullYear()}
             </p>
             <div className="navbar-footer-sociallinks">
-              <a className="navbar-footer-sociallink" href="https://twitter.com/KjartanAndersen">
+              <a
+                className="navbar-footer-sociallink"
+                href="https://twitter.com/KjartanAndersen"
+              >
                 <BsTwitter />
               </a>
-              <a className="navbar-footer-sociallink" href="https://github.com/kjartanandersen">
+              <a
+                className="navbar-footer-sociallink"
+                href="https://github.com/kjartanandersen"
+              >
                 <BsGithub />
               </a>
-              <a className="navbar-footer-sociallink" href="https://is.linkedin.com/in/kjartan-m%C3%A1r-andersen-894abb1a6">
+              <a
+                className="navbar-footer-sociallink"
+                href="https://is.linkedin.com/in/kjartan-m%C3%A1r-andersen-894abb1a6"
+              >
                 <BsLinkedin />
               </a>
             </div>
           </div>
-
         </div>
       </footer>
     </div>

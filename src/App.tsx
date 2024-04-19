@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import NavBar from "./components/NavBar/NavBar";
@@ -8,30 +8,32 @@ import cvImage from "./images/CV/cv_image.jpg";
 import hrefImage from "./images/Home/downIcon.png";
 
 import "./App.css";
-
-import Particle from "./components/Home/Particle";
+import Projects from "./components/Projects/Projects";
+import CV from "./components/CV/CV";
 
 const App = (): JSX.Element => {
+  const projectRef = useRef(null);
+
   useEffect(() => {
     document.title = "Kjartan Már Andersen";
   }, []);
 
-  const onClickhomeAboutHref = () => {
-    document.getElementById("home-about-href")?.scrollIntoView();
+  const onClickhomeAboutHref = (gotoString: string) => {
+    document.getElementById(gotoString)?.scrollIntoView();
   };
 
   return (
-    <NavBar activeComp="home">
+    <NavBar activeComp="home" gotoHrefFunc={onClickhomeAboutHref}>
       <div className="home">
-        <Particle />
-
         <div className="home-hero">
           <h1 data-testid="app-name">Kjartan Már Andersen</h1>
           <h4>Software Developer</h4>
         </div>
         <a
           id="home-about-href"
-          onClick={onClickhomeAboutHref}
+          onClick={() => {
+            onClickhomeAboutHref("home-about-href");
+          }}
           className="home-link-to-about-me"
         >
           <img src={hrefImage} />
@@ -46,8 +48,9 @@ const App = (): JSX.Element => {
                 </h4>
                 <p>
                   I am a Software Developer, born and raised in Reykjavík,
-                  Iceland and currently living there, currently looking for
-                  work.
+                  Iceland and currently living there, currently currently
+                  pursuing a master's degree in Computer Science at Reykjavík
+                  University.
                 </p>
                 <p>
                   I am passionate about programming, and I always strive to make
@@ -56,22 +59,34 @@ const App = (): JSX.Element => {
                   and very friendly.
                 </p>
                 <p>
-                  I am mostly interested in Full-Stack Web Development and Game
-                  Development, but I always love to stay up to date on the
-                  latest stuff related to the world of Computer Science.
+                  I am mostly interested in Game Development, Virtual
+                  Environments and Web Development, but I always love to stay up
+                  to date on the latest stuff related to the world of Computer
+                  Science.
+                </p>
+                <p>
+                  You can learn more about me by taking a look at my{" "}
+                  <Link to="/cv" className="home-bubble-link">
+                    <div>resume</div>
+                  </Link>{" "}
+                  and you can also take a look at my personal{" "}
+                  <a
+                    onClick={() => {
+                      onClickhomeAboutHref("projects-href");
+                    }}
+                    className="home-bubble-link"
+                  >
+                    <div>projects</div>
+                  </a>
+                  
                 </p>
               </div>
             </div>
           </div>
-          <div className="flex">
-            <Link to="/cv" className="home-bubble-link">
-              <div>My Resume </div>
-            </Link>
-            <Link to="/projects" className="home-bubble-link">
-              <div>Projects </div>
-            </Link>
-          </div>
         </div>
+        <div id="projects-href" className="href-anchor"></div>
+        <Projects />
+        <CV />
       </div>
     </NavBar>
   );
