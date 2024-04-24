@@ -21,21 +21,7 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <NotFound />,
   },
-  {
-    path: "cv",
-    element: <CV />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "projects",
-    element: <Projects />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "todo",
-    element: <TodoSite />,
-    errorElement: <NotFound />,
-  },
+  
 ]);
 
 const rootNode = document.getElementById("app");

@@ -17,15 +17,21 @@ const CV = ({}: IProps): JSX.Element => {
   }, []);
 
   return (
-    <div>
-        <div className="cv-page">
-          <InfoCard Info={profileList.info} Languages={profileList.languages} Links={profileList.links} References={profileList.references} Skills={profileList.skills}/>
-          <ExperienceAndEducationCard
-            Education={profileList.education}
-            WorkExperience={profileList.work_experiences}
-          />
-        </div>
-      
+    <div className="cv">
+      <h1>Resume</h1>
+      <div className="cv-page">
+        <InfoCard
+          Info={profileList.info}
+          Languages={profileList.languages}
+          Links={profileList.links}
+          References={profileList.references}
+          Skills={profileList.skills}
+        />
+        <ExperienceAndEducationCard
+          Education={profileList.education}
+          WorkExperience={profileList.work_experiences}
+        />
+      </div>
     </div>
   );
 };

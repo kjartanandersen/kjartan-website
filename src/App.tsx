@@ -38,54 +38,50 @@ const App = (): JSX.Element => {
         >
           <img src={hrefImage} />
         </a>
-        <div className="flex-home">
-          <div className="home-content">
-            <div className="home-info">
-              <img src={cvImage} alt="An image of me" className="home-image" />
-              <div className="home-aboutme">
-                <h4 className="home-about-text">
-                  <b>About Me</b>
-                </h4>
-                <p>
-                  I am a Software Developer, born and raised in Reykjavík,
-                  Iceland and currently living there, currently currently
-                  pursuing a master's degree in Computer Science at Reykjavík
-                  University.
-                </p>
-                <p>
-                  I am passionate about programming, and I always strive to make
-                  high quality, readable and well documented code. I can work
-                  with other people, I am very flexible, initiative, confident
-                  and very friendly.
-                </p>
-                <p>
-                  I am mostly interested in Game Development, Virtual
-                  Environments and Web Development, but I always love to stay up
-                  to date on the latest stuff related to the world of Computer
-                  Science.
-                </p>
-                <p>
-                  You can learn more about me by taking a look at my{" "}
-                  <Link to="/cv" className="home-bubble-link">
-                    <div>resume</div>
-                  </Link>{" "}
-                  and you can also take a look at my personal{" "}
-                  <a
-                    onClick={() => {
-                      onClickhomeAboutHref("projects-href");
-                    }}
-                    className="home-bubble-link"
-                  >
-                    <div>projects</div>
-                  </a>
-                  
-                </p>
-              </div>
-            </div>
-          </div>
+
+        <div className="home-content">
+          <h4 className="home-about-text">
+            <b>About Me</b>
+          </h4>
+          <p className="home-about-paragraph">
+            I am a Software Developer, born and raised in Reykjavík, Iceland and
+            currently living there, currently currently pursuing a master's
+            degree in Computer Science at Reykjavík University.
+          </p>
+          <p className="home-about-paragraph">
+            I am passionate about programming, and I always strive to make high
+            quality, readable and well documented code. I can work with other
+            people, I am very flexible, initiative, confident and very friendly.
+          </p>
+          <p className="home-about-paragraph">
+            I am mostly interested in Game Development, Virtual Environments and
+            Web Development, but I always love to stay up to date on the latest
+            stuff related to the world of Computer Science.
+          </p>
+          <p className="home-about-paragraph">
+            You can learn more about me by taking a look at my
+            <a
+              onClick={() => {
+                onClickhomeAboutHref("cv-href");
+              }}
+              className="home-bubble-link"
+            >
+              <div>resume</div>
+            </a>
+            and you can also take a look at my personal
+            <a
+              onClick={() => {
+                onClickhomeAboutHref("projects-href");
+              }}
+              className="home-bubble-link"
+            >
+              <div>projects.</div>
+            </a>
+          </p>
         </div>
         <div id="projects-href" className="href-anchor"></div>
         <Projects />
+        <div id="cv-href" className="href-anchor"></div>
         <CV />
       </div>
     </NavBar>

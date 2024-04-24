@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Props } from "./Model/Model";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { AiOutlineFundProjectionScreen, AiOutlineHome, AiFillTwitterCircle } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 import {BsGithub, BsLinkedin, BsTwitter} from "react-icons/bs";
+import {FaSquareXTwitter, FaSquareGithub, FaLinkedinIn } from "react-icons/fa6";
 
 import "./NavBarStyles.css";
 
@@ -12,6 +13,7 @@ import twitterImg from "../../images/NavBar/twitter.png";
 import linkedinImg from "../../images/NavBar/linkedin.png";
 import githubImg from "../../images/NavBar/github.png";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
+import { SiZebpay } from "react-icons/si";
 
 const NavBar = ({gotoHrefFunc, activeComp, children }: Props): JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -26,8 +28,35 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props): JSX.Element => {
     }
   }
 
+  // Hook
+  function useWindowSize() {
+    // Initialize state with undefined width/height so server and client renders match
+    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+    const [windowSize, setWindowSize] = useState({
+      width: 0,
+      height: 0,
+    });
+    useEffect(() => {
+      // Handler to call on window resize
+      function handleResize() {
+        // Set window width/height to state
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+      // Add event listener
+      window.addEventListener("resize", handleResize);
+      // Call handler right away so state gets updated with initial window size
+      handleResize();
+      // Remove event listener on cleanup
+      return () => window.removeEventListener("resize", handleResize);
+    }, []); // Empty array ensures that effect is only run on mount
+    return windowSize;
+  }
 
-  const loadingComponent: JSX.Element = <div>Loading...</div>;
+  const size = useWindowSize();
+
 
   const loadedComponent: JSX.Element = (
     <div className="nav-container">
@@ -36,8 +65,10 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props): JSX.Element => {
         <Navbar
           expanded={expand}
           fixed="top"
-          expand="md"
+          expand="lg"
           className={navColour ? "sticky" : "navbar"}
+          bg="primary"
+          data-bs-theme="dark"
         >
           <Container>
             <Navbar.Brand href="/" className="d-flex"></Navbar.Brand>
@@ -59,7 +90,7 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props): JSX.Element => {
                     to=""
                     onClick={() => gotoHrefFunc("home-about-href")}
                   >
-                    <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
+                    <AiOutlineHome style={{ marginBottom: "2px" }} /> About Me
                   </Nav.Link>
                 </Nav.Item>
 
@@ -80,7 +111,7 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props): JSX.Element => {
                   <Nav.Link
                     as={Link}
                     to=""
-                    onClick={() => updateExpanded(false)}
+                    onClick={() => gotoHrefFunc("cv-href")}
                   >
                     <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
                   </Nav.Link>
@@ -137,27 +168,29 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props): JSX.Element => {
       <footer>
         <div className="navbar-footer">
           <div className="navbar-footer-copy-and-links">
-            <p className="navbar-footer-copy">
+            <h3 className="navbar-footer-copy">
               &#169; Kjartan Már Andersen {new Date().getFullYear()}
-            </p>
+            </h3>
             <div className="navbar-footer-sociallinks">
               <a
                 className="navbar-footer-sociallink"
                 href="https://twitter.com/KjartanAndersen"
               >
-                <BsTwitter />
+                <FaSquareXTwitter
+                  size={size.width < 500 ? "1.2rem" : "1.2rem"}
+                />
               </a>
               <a
                 className="navbar-footer-sociallink"
                 href="https://github.com/kjartanandersen"
               >
-                <BsGithub />
+                <FaSquareGithub size={size.width < 500 ? "1.2rem" : "1.2rem"} />
               </a>
               <a
                 className="navbar-footer-sociallink"
                 href="https://is.linkedin.com/in/kjartan-m%C3%A1r-andersen-894abb1a6"
               >
-                <BsLinkedin />
+                <FaLinkedinIn size={size.width < 500 ? "1.2rem" : "1.2rem"} />
               </a>
             </div>
           </div>
@@ -168,11 +201,7 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props): JSX.Element => {
 
   window.addEventListener("scroll", scrollHandler);
 
-  return (
-    <React.Fragment>
-      {loadedComponent}
-    </React.Fragment>
-  );
+  return <React.Fragment>{loadedComponent}</React.Fragment>;
 };
 
 export default NavBar;

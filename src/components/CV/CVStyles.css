@@ -1,6 +1,14 @@
+.cv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  color: white;
+}
+
 .cv-page {
 
-    padding-top: 10rem;
+    
 
     display: flex;
     flex-direction: row;
