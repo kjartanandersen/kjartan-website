@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 //import { Link } from "react-router-dom";
 
-
+import { UNDER_MAINTENANCE } from "./consts";
 
 import NavBar from "./components/NavBar/NavBar";
 
@@ -86,7 +86,7 @@ const App = () => {
       </div>
     </NavBar>
 
-    const underConstr = true;
+    const underConstr = UNDER_MAINTENANCE;
 
   useEffect(() => {
     document.title = "Kjartan Már Andersen";
