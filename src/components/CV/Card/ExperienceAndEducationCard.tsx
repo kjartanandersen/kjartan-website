@@ -9,8 +9,8 @@ import "./ExperienceAndEducationCardStyles.css";
 const ExperienceAndEducationCard = ({
   WorkExperience,
   Education,
-}: IExperienceAndEducationCardProps): JSX.Element => {
-  const workExperienceElement: JSX.Element = (
+}: IExperienceAndEducationCardProps) => {
+  const workExperienceElement = (
     <div className="cv-work-experience">
       <h2>Work Experience</h2>
       {WorkExperience.map((exp) => {
@@ -24,7 +24,7 @@ const ExperienceAndEducationCard = ({
     </div>
   );
 
-  const educationElement: JSX.Element = (
+  const educationElement = (
     <div className="cv-education">
       <h2>Education</h2>
       {Education.map((ed) => {

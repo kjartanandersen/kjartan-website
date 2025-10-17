@@ -7,6 +7,9 @@ import cvImage from '../images/CV/cv_image.jpg';
 
 export const profileData: ProfileProp = {
   id: "63a906353e282d9b9ab8965d",
+  name: "Kjartan Már Andersen",
+  about_me:
+    "I am a passionate recent computer science graduate and experienced software developer, who specializes in web development in frameworks like React and .NET. I am also experienced inprogramming languages like JavaScript, C#, C, C++, SQL, Java, Python and more",
   info: {
     name: "Kjartan Már Andersen",
     about_me:

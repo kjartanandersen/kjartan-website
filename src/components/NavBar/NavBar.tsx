@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Props } from "./Model/Model";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { AiOutlineFundProjectionScreen, AiOutlineHome, AiFillTwitterCircle } from "react-icons/ai";
@@ -60,7 +59,7 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props) => {
 
   const loadedComponent = (
     <div className="nav-container">
-      <ScrollToTop />
+      
       <header>
         <Navbar
           expanded={expand}
@@ -86,8 +85,6 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props) => {
               <Nav className="ms-auto" defaultActiveKey="#home">
                 <Nav.Item>
                   <Nav.Link
-                    as={Link}
-                    to=""
                     onClick={() => gotoHrefFunc("home-about-href")}
                   >
                     <AiOutlineHome style={{ marginBottom: "2px" }} /> About Me
@@ -96,8 +93,6 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props) => {
 
                 <Nav.Item>
                   <Nav.Link
-                    as={Link}
-                    to=""
                     onClick={() => gotoHrefFunc("projects-href")}
                   >
                     <AiOutlineFundProjectionScreen
@@ -109,8 +104,6 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props) => {
 
                 <Nav.Item>
                   <Nav.Link
-                    as={Link}
-                    to=""
                     onClick={() => gotoHrefFunc("cv-href")}
                   >
                     <CgFileDocument style={{ marginBottom: "2px" }} /> Resume

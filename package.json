@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@netlify/functions": "^5.0.0",
+    "@testing-library/dom": "^10.4.1",
     "@types/file-loader": "^5.0.4",
     "@types/react-native": "^0.73.0",
     "@types/react-test-renderer": "^19.1.0",
