@@ -57,6 +57,8 @@ export type LinkProp = {
 }
 export type ProfileProp = {
     id: string,
+    name: string,
+    about_me: string,
     info: InfoProp,
     hobbies: string[]
     languages: LanguageProp[],

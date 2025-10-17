@@ -13,7 +13,7 @@ import {
   SiHtml5,
   SiCss3,
   SiNetlify,
-  SiCsharp,
+  SiSharp,
   SiUnity,
 } from "react-icons/si";
 
@@ -22,7 +22,7 @@ export const projectItems: Props[] = [
     title: "CoffeeQuest",
     descrpition:
       "A video game me and other students worked on for a game development course in Reykjavík University",
-    technology: [<SiUnity scale={1.5} />, <SiCsharp scale={1.5} />],
+    technology: [<SiUnity scale={1.5} />, <SiSharp scale={1.5} />],
     image: coffeeQuestImage,
     link: "https://jonweekend.itch.io/coffee-quest",
   },
@@ -30,7 +30,7 @@ export const projectItems: Props[] = [
     title: "In a Bind",
     descrpition:
       "A video game me and other students worked on for our Bachelor's Thesis at Reykjavík University",
-    technology: [<SiUnity scale={1.5} />, <SiCsharp scale={1.5} />],
+    technology: [<SiUnity scale={1.5} />, <SiSharp scale={1.5} />],
     image: inABindImage,
     link: "https://olafur97.itch.io/in-a-bind",
   },
@@ -38,7 +38,7 @@ export const projectItems: Props[] = [
     title: "Immersive Sim",
     descrpition:
       "A short game I made for the Virtual Environments course at Reykjavík University",
-    technology: [<SiUnity scale={1.5} />, <SiCsharp scale={1.5} />],
+    technology: [<SiUnity scale={1.5} />, <SiSharp scale={1.5} />],
     image: imSimImage,
     link: "https://svidakjammi.itch.io/immersive-sim",
   },

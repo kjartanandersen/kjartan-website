@@ -6,9 +6,9 @@ import './ExperienceCardStyles.css';
 
 const ExperienceCard = ({
   WorkExperience
-}: IExperienceCardProps): JSX.Element => {
+}: IExperienceCardProps) => {
 
-  const workExperienceElements: JSX.Element = (
+  const workExperienceElements = (
     <div className="work-experience-card">
       <div>
       <h4>{WorkExperience.company_name}</h4>

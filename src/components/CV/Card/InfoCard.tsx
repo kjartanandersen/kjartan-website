@@ -4,9 +4,9 @@ import { IInfoCardProps } from "../Model/Model";
 
 import './InfoCardStyles.css';
 
-const InfoCard = ({ Info, Languages, Links, References, Skills }: IInfoCardProps): JSX.Element => {
+const InfoCard = ({ Info, Languages, Links, References, Skills }: IInfoCardProps) => {
 
-  const languagesElement: JSX.Element = (
+  const languagesElement = (
     <div className="cv-info-languages">
       <h4><b>Languages:</b></h4>
       <p>{Languages.map((element) => (
@@ -16,7 +16,7 @@ const InfoCard = ({ Info, Languages, Links, References, Skills }: IInfoCardProps
     </div>
   );
 
-  const linksElement: JSX.Element = (
+  const linksElement = (
     <div className="cv-info-links">
       <h4><b>Links:</b></h4>
       <p>{Links.map((element) => (
@@ -26,7 +26,7 @@ const InfoCard = ({ Info, Languages, Links, References, Skills }: IInfoCardProps
     </div>
   );
 
-  const referencesElement: JSX.Element = (
+  const referencesElement = (
     <div className="cv-info-references">
       <h4><b>References:</b></h4>
       <p>{Links.map((element) => (
@@ -36,7 +36,7 @@ const InfoCard = ({ Info, Languages, Links, References, Skills }: IInfoCardProps
     </div>
   );
 
-  const skillsElement: JSX.Element = (
+  const skillsElement = (
     <div className="cv-info-skills">
       <h4><b>Skills:</b></h4>
       <p>{Skills.map((element) => (
@@ -46,7 +46,7 @@ const InfoCard = ({ Info, Languages, Links, References, Skills }: IInfoCardProps
     </div>
   );
 
-  const infoElement: JSX.Element = (
+  const infoElement = (
     <>
       <h2>{Info.name}</h2>
       <img src={Info.image} alt="An image of me"></img>

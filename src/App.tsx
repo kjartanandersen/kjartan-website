@@ -1,29 +1,29 @@
 // src/App.tsx
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+
+
 
 import NavBar from "./components/NavBar/NavBar";
 
-import cvImage from "./images/CV/cv_image.jpg";
+//import cvImage from "./images/CV/cv_image.jpg";
 import hrefImage from "./images/Home/downIcon.png";
 
 import "./App.css";
 import Projects from "./components/Projects/Projects";
 import CV from "./components/CV/CV";
+import UnderConstr from "./UnderConstr";
 
-const App = (): JSX.Element => {
+
+
+const App = () => {
   const projectRef = useRef(null);
-
-  useEffect(() => {
-    document.title = "Kjartan Már Andersen";
-  }, []);
 
   const onClickhomeAboutHref = (gotoString: string) => {
     document.getElementById(gotoString)?.scrollIntoView();
   };
 
-  return (
-    <NavBar activeComp="home" gotoHrefFunc={onClickhomeAboutHref}>
+  var retPage = <NavBar activeComp="home" gotoHrefFunc={onClickhomeAboutHref}>
       <div className="home">
         <div className="home-hero">
           <h1 data-testid="app-name">Kjartan Már Andersen</h1>
@@ -85,6 +85,21 @@ const App = (): JSX.Element => {
         <CV />
       </div>
     </NavBar>
+
+    const underConstr = true;
+
+  useEffect(() => {
+    document.title = "Kjartan Már Andersen";
+    
+    
+
+
+  }, []);
+
+  
+
+  return (
+    underConstr ? <UnderConstr /> : retPage
   );
 };
 

@@ -6,9 +6,9 @@ import './EducationCardStyles.css';
 
 const EducationCard = ({
   Education
-}: IEducationCardProps): JSX.Element => {
+}: IEducationCardProps) => {
 
-  const educationElements: JSX.Element = (
+  const educationElements = (
     <div className="education-card">
       <div>
       <h4>{Education.name}</h4>

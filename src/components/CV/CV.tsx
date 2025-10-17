@@ -7,11 +7,10 @@ import ExperienceAndEducationCard from "./Card/ExperienceAndEducationCard";
 import "./CVStyles.css";
 import { profileData } from "../../Db/profileData";
 import InfoCard from "./Card/InfoCard";
-import Particle from "../Home/Particle";
 
 const profileList: ProfileProp = profileData;
 
-const CV = ({}: IProps): JSX.Element => {
+const CV = ({}: IProps) => {
   useEffect(() => {
     document.title = "My Resume";
   }, []);

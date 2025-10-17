@@ -15,7 +15,7 @@ import githubImg from "../../images/NavBar/github.png";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import { SiZebpay } from "react-icons/si";
 
-const NavBar = ({gotoHrefFunc, activeComp, children }: Props): JSX.Element => {
+const NavBar = ({gotoHrefFunc, activeComp, children }: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [expand, updateExpanded] = useState<any>(false);
   const [navColour, updateNavbar] = useState(false);
@@ -58,7 +58,7 @@ const NavBar = ({gotoHrefFunc, activeComp, children }: Props): JSX.Element => {
   const size = useWindowSize();
 
 
-  const loadedComponent: JSX.Element = (
+  const loadedComponent = (
     <div className="nav-container">
       <ScrollToTop />
       <header>

@@ -6,9 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 
 import NotFound from "./NotFound";
-import CV from "./components/CV/CV";
-import Projects from "./components/Projects/Projects";
-import TodoSite from "./components/TodoSite/TodoSite";
 
 // const App = React.lazy(() => import('./App'));
 // const NotFound = React.lazy(() => import('./NotFound'));
