@@ -7,26 +7,6 @@ const prod_config = {
 
 };
 
-const defaultProfile: ProfileProp = {
-  id: "",
-  name: "",
-  about_me: "",
-  current_residence: "",
-  date_of_birth: new Date(),
-  ssn: "",
-  phone: "",
-  email: "",
-  hobbies: [],
-  languages: [],
-  skills: [],
-  references: [],
-  education: [],
-  work_experiences: [],
-  links: [],
-};
-
-const dev_config = {}
-
 export async function getProfileFromAPI(url: string) {
   try {
     
