@@ -8,8 +8,9 @@
           "dom"
         ],
         "jsx": "react",
-        "noEmit": true,    
-        "sourceMap": true,    /* Strict Type-Checking Options */
+        "noEmit": true,
+        "sourceMap": true,
+        "skipLibCheck": true,    /* Strict Type-Checking Options */
         "strict": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
