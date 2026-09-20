@@ -4,7 +4,7 @@
     {
       "name": "dev",
       "runtimeExecutable": "C:\\Users\\Lenovo\\.nvm\\versions\\node\\v22.20.0\\bin\\node.exe",
-      "runtimeArgs": ["node_modules/webpack/bin/webpack.js", "serve", "--config", "webpack.dev.js"],
+      "runtimeArgs": [".yarn/releases/yarn-4.18.0.cjs", "webpack", "serve", "--config", "webpack.dev.js"],
       "port": 3000
     }
   ]

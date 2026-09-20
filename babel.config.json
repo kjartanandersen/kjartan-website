@@ -1,15 +1,8 @@
-// babel.config.json
-
 {
   "presets": [
     "@babel/preset-typescript",
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "usage",
-        "corejs": 3
-      }
-    ],
-    "@babel/preset-react"
-  ]
+    "@babel/preset-env",
+    ["@babel/preset-react", { "runtime": "automatic" }]
+  ],
+  "plugins": [["polyfill-corejs3", { "method": "usage-global" }]]
 }

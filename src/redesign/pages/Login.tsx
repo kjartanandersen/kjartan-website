@@ -15,12 +15,14 @@ const PASSWORD_TEXT_TO_FILL = "mypass123";
 // Milliseconds per character of the auto-fill animation.
 const TYPE_DELAY_MS = 30;
 
+type TimerId = ReturnType<typeof setTimeout>;
+
 const Login: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const typeTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const typeTimers = useRef([] as TimerId[]);
 
   // Reveals `text` one character at a time, handing each partial value to `assign`.
   const typeText = (text: string, assign: (value: string) => void) => {

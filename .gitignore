@@ -5,6 +5,16 @@ coverage/
 dist/*
 !dist/_redirects
 
+# Yarn 4 (Plug'n'Play) — commit yarn.lock, .yarnrc.yml and .yarn/releases;
+# ignore the fetched cache and generated PnP artifacts.
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
 # .env
 prod.env
 dev.env

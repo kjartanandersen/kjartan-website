@@ -1,62 +1,68 @@
 version: 2.1
-orbs:
-  node: circleci/node@7.2.0
+
 jobs:
   test-app:
     working_directory: ~/repo
     docker:
       - image: cimg/node:20.19.4
 
-    ## setup
     steps:
       - checkout
 
-      - restore_cache:
-          keys: 
-            - node-v1-{{ checksum "package.json" }}-{{ arch }}
-            - node-v1-
+      # The cimg image ships Yarn 1; corepack activates the Yarn 4 version
+      # pinned in package.json's "packageManager" field.
+      - run:
+          name: Enable Corepack (Yarn 4)
+          command: sudo corepack enable
 
-      - run: yarn install
+      - restore_cache:
+          keys:
+            - yarn-cache-v1-{{ checksum "yarn.lock" }}
+            - yarn-cache-v1-
+
+      - run:
+          name: Install dependencies
+          command: yarn install --immutable
 
       - save_cache:
+          key: yarn-cache-v1-{{ checksum "yarn.lock" }}
           paths:
-            - node_modules
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+            - .yarn/cache
 
-      ## run tests
       - run:
-          name: jest tests
+          name: Jest tests
           command: yarn test
-  
+
   build-and-deploy-app:
     working_directory: ~/repo
     docker:
       - image: cimg/node:20.19.4
 
-    ## setup
     steps:
       - checkout
-      
-      - restore_cache:
-          keys: 
-            - node-v1-{{ checksum "package.json" }}-{{ arch }}
-            - node-v1-
-      # Build App
+
       - run:
-          name: Build React App
+          name: Enable Corepack (Yarn 4)
+          command: sudo corepack enable
+
+      - restore_cache:
+          keys:
+            - yarn-cache-v1-{{ checksum "yarn.lock" }}
+            - yarn-cache-v1-
+
+      - run:
+          name: Install dependencies
+          command: yarn install --immutable
+
+      - run:
+          name: Build React app
           command: yarn build:prod
 
-      - save_cache:
-          key: app-build-cache-{{ .Branch }}
-          paths:
-            - ./dist
       - run:
           name: Deploy to Netlify
-          # ./node_modules/.bin/netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=dist
           command: yarn netlify:deploy
 
 workflows:
-  version: 2
   test-build-deploy-app:
     jobs:
       - test-app
