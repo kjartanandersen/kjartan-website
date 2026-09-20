@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'dungeon';
+  src: url('../../assets/fonts/dungeon.TTF');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'battle';
+  src: url('../../assets/fonts/BATTLE3.TTF');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000000;
+  color: rgb(222, 221, 221);
+  font-family: 'dungeon', sans-serif;
+}
+
+a {
+  color: inherit;
+}

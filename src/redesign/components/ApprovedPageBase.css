@@ -1,0 +1,142 @@
+.closeFlex {
+  display: flex;
+  padding-right: 5px;
+}
+
+.close {
+  margin: 13px 0px 0px 0px;
+  background-color: #00000000;
+  border: 0;
+}
+
+.closeImg {
+  width: 20px;
+  height: 20px;
+}
+
+.topBorder {
+  display: flex;
+  align-items: flex-start;
+}
+
+.leftSideTop {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex: 4;
+}
+
+.rightSideTop {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex: 1;
+}
+
+.dateTime {
+  background-color: #0201a3;
+  padding: 1px 5px 1px 5px;
+  font-size: small;
+  width: 220px;
+  text-align: center;
+}
+
+.ipAddress {
+  background-color: #0201a3;
+  margin-left: 5px;
+  padding: 1px 30px 1px 30px;
+  font-size: small;
+}
+
+.speedFlex {
+  display: flex;
+  padding: 9px 0px 1px 10px;
+}
+
+.speedImg {
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
+}
+
+.cpuText {
+  font-size: small;
+  margin: 0;
+}
+
+.inline {
+  display: flex;
+}
+
+.cpuTrace {
+  background-color: #0201a3;
+  font-size: small;
+  margin: 0px 3px 0px 3px;
+}
+
+.worldMap {
+  margin: 10px;
+  margin-left: auto;
+}
+
+.worldMap img {
+  display: block;
+  height: 128px;
+  width: auto;
+}
+
+.worldMap a {
+  display: inline-block;
+  width: 100%;
+  background-color: #0201a3;
+  text-align: center;
+  margin: 0;
+  margin-top: 5px;
+  font-size: small;
+  color: white;
+  text-decoration: none;
+}
+
+.childComponent {
+  position: relative;
+  top: -100px;
+}
+
+.childComponentFlush {
+  position: relative;
+  top: 0;
+  padding-top: 10px;
+}
+
+.siteFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 40px 10px 12px;
+  padding-top: 10px;
+  border-top: 2px solid #0201a3;
+  font-size: small;
+}
+
+.footerName {
+  font-size: 16px;
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+
+.footerLinks a {
+  color: white;
+  text-decoration: none;
+  background-color: #0201a3;
+  padding: 2px 10px;
+}
+
+.footerLinks a:hover {
+  outline: 1px solid white;
+}

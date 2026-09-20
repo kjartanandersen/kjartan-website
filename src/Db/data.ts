@@ -21,7 +21,8 @@ export const projects: Project[] = [
   {
     id: "metahuman-social-maneuvering",
     title: "Subtle Social Maneuvering for MetaHumans",
-    context: "MSc thesis, Reykjavík University",
+    context:
+      "MSc thesis, Reykjavík University — advisor: Hannes Högni Vilhjálmsson",
     year: "2025",
     summary:
       "Virtual agents that orient gaze, head, chest and feet independently to express degrees of social commitment inside a group conversation.",
@@ -37,6 +38,10 @@ export const projects: Project[] = [
     ],
     links: [
       {
+        label: "Video demonstration",
+        url: "https://youtu.be/Rv-hVHBgsSc",
+      },
+      {
         label: "Read the thesis",
         url: "https://skemman.is/handle/1946/51604?locale=en",
       },
@@ -50,7 +55,7 @@ export const projects: Project[] = [
     summary:
       "A released action game about a priest with a grappling hook. I built the swing mechanics, the player controller and the audio.",
     description:
-      "A released action game in which the player is a priest armed with the Holy Hook, a grappling hook granted by divine intervention. Swing at speed through a castle filled with traps and undead minions to reach and defeat a king who has turned to necromancy to protect his reign. Built by a four-person team.",
+      "A released action game in which the player is a priest armed with the Holy Hook, a grappling hook granted by divine intervention. Swing at speed through a castle filled with traps and undead minions to reach and defeat a king who has turned to necromancy to protect his reign. Built by a four-person team for the Advanced Game Design & Development course, together with Ágúst Máni Þorsteinsson, Hermann Helgi Þrastarson and Poomi Krua-Aim.",
     role:
       "General gameplay programming, audio, and the swing mechanics the whole game is built around. I built the first-person player controller on Unity's Input System with controller support, and developed the movement around the hook — double jump with finer air control, hook retraction, and chaining a jump out of a swing — as well as the background music, enemy sounds and footstep effects.",
     techStack: ["Unity", "C#", "Gameplay programming", "Team project"],
@@ -59,21 +64,17 @@ export const projects: Project[] = [
         label: "Play on itch.io",
         url: "https://hermannhelgi.itch.io/the-holy-hook",
       },
-      {
-        label: "Source",
-        url: "https://github.com/Poomi777/HolyHook",
-      },
     ],
   },
   {
     id: "in-a-bind",
     title: "In a Bind",
-    context: "BSc thesis, Reykjavík University",
+    context: "BSc thesis, Reykjavík University — advisor: Torfi Ásgeirsson",
     year: "2021",
     summary:
       "A physics-based rope puzzle platformer, released for Windows. I built the entire audio, puzzle elements and level design.",
     description:
-      "A physics-based puzzle platformer built around rope physics, released for Windows. Levels are filled with puzzles the player solves primarily with rope — creating, attaching and dragging ropes to reach a solution in any way they can, combined with platforming to navigate the environment.",
+      "A physics-based puzzle platformer built around rope physics, released for Windows. Levels are filled with puzzles the player solves primarily with rope — creating, attaching and dragging ropes to reach a solution in any way they can, combined with platforming to navigate the environment. Developed with Ólafur Diðrik Halldórsson and Thomas Ari Bech.",
     role:
       "General gameplay programming, audio and level design. I designed and implemented the game's entire audio, including sound effects for every rope capability with the rope's sound responding dynamically to its length, plus ambience and per-level music, and built physics-driven puzzle elements such as a seesaw and a wrecking ball.",
     techStack: ["Unity", "C#", "Physics simulation", "Level design"],

@@ -1,0 +1,125 @@
+.contentPage {
+  margin: auto;
+  width: 70%;
+}
+
+.contentPage .pageHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 2px solid #0201a3;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contentPage .pageHeader h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+.backLink {
+  text-decoration: none;
+  color: white;
+  background-color: #0201a3;
+  padding: 4px 14px;
+  font-size: 14px;
+}
+
+.backLink:hover {
+  outline: 1px solid white;
+}
+
+.entryList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.entry {
+  display: flex;
+  gap: 18px;
+  border: 1px solid #0201a3;
+  padding: 14px;
+  background-color: rgba(2, 1, 163, 0.08);
+}
+
+.entry img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  background-color: #ffffff;
+  border: 2px solid #0201a3;
+  flex-shrink: 0;
+}
+
+.entryBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.entryTitleRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.entryTitle {
+  margin: 0;
+  font-size: 24px;
+}
+
+.entrySub {
+  margin: 2px 0 0;
+  font-size: 16px;
+  color: #9db7ff;
+}
+
+.entryDate {
+  font-size: 14px;
+  color: #9db7ff;
+  white-space: nowrap;
+}
+
+.entryDesc {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 2px 8px;
+  border: 1px solid #0201a3;
+  background-color: #0201a3;
+}
+
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.entryLink {
+  font-size: 14px;
+  color: white;
+  text-decoration: underline;
+}
+
+.placeholder {
+  font-size: 18px;
+  line-height: 1.6;
+}

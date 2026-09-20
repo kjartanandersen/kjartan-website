@@ -1,0 +1,60 @@
+.index {
+  display: flex;
+  flex-direction: column;
+}
+
+.index .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index .page {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 70vh;
+  padding: 10px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.rightSideList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.rightSideList .speedImg {
+  width: 40px;
+  height: 40px;
+  padding-left: 10px;
+}
+
+.pass {
+  margin: 10px;
+  padding: 3px;
+  background-color: black;
+  border: 0px;
+  color: white;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.hovered {
+  border: 1px solid;
+  border-color: white;
+}
+
+.hiddenBtn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.hiddenBtn:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  outline: 2px solid blue; /* Highly recommended for accessibility */
+}

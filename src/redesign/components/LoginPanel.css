@@ -1,0 +1,125 @@
+.loginWrap {
+  container-type: inline-size;
+  width: min(94vw, 340px);
+}
+
+.loginPanel {
+  /* Everything below is sized in em, so the panel scales as one piece. */
+  font-size: clamp(0.7rem, 3vw, 1.25rem);
+  font-size: 3.125cqw;
+  font-family: Arial, Helvetica, "Helvetica Neue", sans-serif;
+
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 1.6em 1.6em 3em;
+
+  background: radial-gradient(
+    120% 130% at 32% 26%,
+    #3fc4de 0%,
+    #22a3c1 46%,
+    #10809b 78%,
+    #0a6c85 100%
+  );
+  border: 1px solid rgba(0, 22, 32, 0.55);
+  box-shadow: inset 0 0 5em rgba(0, 45, 62, 0.3),
+    0 0.4em 1.6em rgba(0, 0, 0, 0.45);
+}
+
+.arcs {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.arcs circle {
+  fill: none;
+  stroke: #06404f;
+  stroke-width: 4;
+  opacity: 0.16;
+}
+
+.loginPanel .title,
+.loginPanel .label,
+.loginPanel .field {
+  position: relative; /* lift above .arcs */
+}
+
+.loginPanel .title {
+  margin: 0 0 2em;
+  font-size: 1.9em;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #0c2c37;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.2em 1.6em;
+}
+
+.label {
+  font-size: 1.5em;
+  color: #103b47;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.field {
+  box-sizing: border-box;
+  width: 100%;
+  height: 2em;
+  padding: 0 0.5em;
+
+  font-family: inherit;
+  font-size: 1.25em;
+  color: #06222c;
+  caret-color: #06222c;
+
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.02) 45%,
+    rgba(0, 40, 55, 0.06)
+  );
+  background-color: transparent; /* let the panel gradient read through */
+  border: 0.2em solid #04141d;
+  border-radius: 0;
+  box-shadow: inset 0 0.06em 0 rgba(255, 255, 255, 0.28);
+}
+
+.field:focus-visible {
+  outline: 0.12em solid #d7fbff;
+  outline-offset: 0.12em;
+}
+
+.submitArea {
+  display: flex;
+  justify-content: right;
+}
+
+.submitBtn {
+  padding: 2px 20px;
+  margin-top: 10px;
+  font-weight: bolder;
+  color: #064e64;
+  cursor: pointer;
+  background: radial-gradient(
+    120% 130% at 32% 26%,
+    #3fc4de 0%,
+    #22a3c1 46%,
+    #10809b 78%,
+    #0a6c85 100%
+  );
+  border: 1px solid rgba(0, 22, 32, 0.55);
+  box-shadow: inset 0 0 5em rgba(0, 45, 62, 0.3),
+    0 0.4em 1.6em rgba(0, 0, 0, 0.45);
+}
+
+.txtPassword {
+  -webkit-text-security: disc; /* Masks text as bullets in supporting browsers */
+}

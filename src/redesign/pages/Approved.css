@@ -1,0 +1,59 @@
+.mainPage {
+  margin: auto;
+  width: 70%;
+}
+
+.mainPage img {
+  width: 160px;
+  height: 210px;
+  border: 2px solid #0201a3;
+}
+
+.content {
+  display: flex;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 3;
+}
+
+.leftSide .aboutText {
+  max-width: 260px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.rightSide {
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-around;
+  flex-grow: 7;
+}
+
+.rightSideRow {
+  display: flex;
+}
+
+.rightSideLink {
+  height: 30px;
+  text-decoration: none;
+  font-size: 28px;
+}
+
+.bullet {
+  border-radius: 2px;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(
+    120% 130% at 32% 26%,
+    #3fc4de 0%,
+    #22a3c1 46%,
+    #10809b 78%,
+    #0a6c85 100%
+  );
+}

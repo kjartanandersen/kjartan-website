@@ -1,4 +1,0 @@
-const UNDER_MAINTENANCE = true;
-
-
-export { UNDER_MAINTENANCE };

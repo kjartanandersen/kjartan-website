@@ -1,24 +1,45 @@
-// src/Index.tsx
+// src/index.tsx
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import App from "./App";
+import "./redesign/styles/global.css";
+
+import Login from "./redesign/pages/Login";
+import Approved from "./redesign/pages/Approved";
+import Portfolio from "./redesign/pages/Portfolio";
+import Experience from "./redesign/pages/Experience";
+import Education from "./redesign/pages/Education";
+import Blog from "./redesign/pages/Blog";
 
 import NotFound from "./NotFound";
-
-// const App = React.lazy(() => import('./App'));
-// const NotFound = React.lazy(() => import('./NotFound'));
-// const CV = React.lazy(() => import('./components/CV/CV'));
-// const TodoSite = React.lazy(() => import('./components/TodoSite/TodoSite'));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Login />,
     errorElement: <NotFound />,
   },
-  
+  {
+    path: "/approved",
+    element: <Approved />,
+  },
+  {
+    path: "/portfolio",
+    element: <Portfolio />,
+  },
+  {
+    path: "/experience",
+    element: <Experience />,
+  },
+  {
+    path: "/education",
+    element: <Education />,
+  },
+  {
+    path: "/blog",
+    element: <Blog />,
+  },
 ]);
 
 const rootNode = document.getElementById("app");
