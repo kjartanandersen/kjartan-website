@@ -19,7 +19,6 @@ import "./ContentPage.css";
 const Blog: React.FC = () => {
   const [hasPosts, setHasPosts] = useState<boolean>(false);
   const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchPosts() {
@@ -31,17 +30,17 @@ const Blog: React.FC = () => {
 
         if (error) throw error;
 
-        // Cast data to your explicit TypeScript interface
+        // Cast data to your explicit TypeScript interface.
+        // An empty table comes back as [], which is truthy — check the length
+        // so the placeholder stays up when there is nothing to show.
         if (data) {
           setPosts(data as BlogPost[]);
-          setHasPosts(true);
+          setHasPosts(data.length > 0);
         }
       } catch (error) {
         if (error instanceof Error) {
           console.error("Error fetching blog posts:", error.message);
         }
-      } finally {
-        setLoading(false);
       }
     }
 

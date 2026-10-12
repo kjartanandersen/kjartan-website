@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
 import Approved from "../pages/Approved";
@@ -10,6 +10,21 @@ import Blog from "../pages/Blog";
 
 import { projects } from "../../Db/data";
 import { education, workExperiences } from "../data";
+
+// Blog imports the Supabase client, which throws at module load when the
+// REACT_APP_SUPABASE_* variables are missing. Those are injected by
+// dotenv-webpack at build time and do not exist under Jest, so the client is
+// stubbed here. It returns what Supabase returns for an empty table: an empty
+// array, not null.
+jest.mock("../pages/supabaseClient", () => ({
+  supabase: {
+    from: () => ({
+      select: () => ({
+        order: () => Promise.resolve({ data: [], error: null }),
+      }),
+    }),
+  },
+}));
 
 function renderPage(element: React.ReactElement) {
   return render(<MemoryRouter>{element}</MemoryRouter>);
@@ -122,5 +137,17 @@ describe("Blog page", () => {
 
     expect(screen.getByRole("heading", { name: "Blog" })).toBeInTheDocument();
     expect(screen.getByText(/No entries have been logged yet/)).toBeInTheDocument();
+  });
+
+  it("keeps the placeholder visible once an empty result has loaded", async () => {
+    renderPage(<Blog />);
+
+    // Flush the Supabase query so the component settles into its loaded state.
+    // Without this the assertion only ever sees the initial render.
+    await act(async () => {});
+
+    expect(
+      screen.getByText(/No entries have been logged yet/)
+    ).toBeInTheDocument();
   });
 });
