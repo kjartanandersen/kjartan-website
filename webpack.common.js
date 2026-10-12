@@ -41,6 +41,7 @@ module.exports = {
       // Template must live in src/, not dist/ — using the build output as the
       // template made every build append another <script> tag to itself.
       template: "src/index.html",
+      favicon: "src/assets/favicon.png"
     })
   ],
 };
