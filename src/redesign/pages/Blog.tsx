@@ -22,6 +22,10 @@ const Blog: React.FC = () => {
 
   useEffect(() => {
     async function fetchPosts() {
+      // Null when the build had no Supabase credentials; the placeholder below
+      // is the right thing to show in that case.
+      if (!supabase) return;
+
       try {
         const { data, error } = await supabase
           .from("posts")
